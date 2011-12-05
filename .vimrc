@@ -18,7 +18,6 @@ set bs=indent,eol,start		" allow backspacing over everything in insert mode
 
 "We like 80 columns
 set textwidth=80
-set columns=84 "Have room for the line numbers
 
 "show matching brackets
 set showmatch
