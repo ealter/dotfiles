@@ -6,6 +6,7 @@ set cindent "make smartindent if not c
 set title "show title in console bar
 set sm "show matching braces
 set showcmd
+set wildmenu
 syntax on
 
 " Spaces are better than tabs
