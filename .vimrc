@@ -47,8 +47,8 @@ set ruler
 
 let mapleader=","       " change the leader to be a comma vs slash
 
-" remap jj to escape insert mode (since you'll probably never type this)
-inoremap jj <Esc>
+" remap kj to escape insert mode (since you'll probably never type this)
+inoremap kj <Esc>
 
 " Turn off annoying error bells
 set noerrorbells
