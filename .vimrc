@@ -5,6 +5,8 @@ set autoindent
 set cindent "make smartindent if not c
 set title "show title in console bar
 set sm "show matching braces
+set number " show line numbers
+set ruler
 set showcmd
 set wildmenu
 syntax on
@@ -56,10 +58,6 @@ fun! s:LongLineHLToggle()
   endif
 endfunction
 
-set number " show line numbers
-set title  " show file in titlebar
-set ruler
-
 " remap kj to escape insert mode (since you'll probably never type this)
 inoremap kj <Esc>
 
@@ -84,11 +82,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-h> <C-w>h
 
-"Get ALL the pretty colors
-"set t_Co=256
-"colors zenburn
-
-"quick insertion of a newline
+"quick insertion of a newline by pressing enter
 nmap <CR> o<Esc>
 
 " shortcuts for copying to clipboard
