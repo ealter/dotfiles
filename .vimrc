@@ -37,15 +37,28 @@ if has("autocmd")
   augroup END
 endif
 
+let mapleader="," " change the leader to be a comma vs slash
+
 "Highlight lines over 80 chars
+nnoremap <Leader>H :call<SID>LongLineHLToggle()<cr>
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
-match OverLength /\%>80v.\+/
+
+"Credit goes to http://stackoverflow.com/a/1919805/614644
+fun! s:LongLineHLToggle()
+  if !exists('w:longlinehl')
+    match OverLength /\%>80v.\+/
+    let w:longlinehl = 1
+    echo "Long lines highlighted"
+  else
+    match none
+    unl w:longlinehl
+    echo "Long lines unhighlighted"
+  endif
+endfunction
 
 set number " show line numbers
 set title  " show file in titlebar
 set ruler
-
-let mapleader=","       " change the leader to be a comma vs slash
 
 " remap kj to escape insert mode (since you'll probably never type this)
 inoremap kj <Esc>
