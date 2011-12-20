@@ -9,6 +9,7 @@ set number " show line numbers
 set ruler
 set showcmd
 set wildmenu
+set scrolloff=2 "2 lines above/below cursor when scrolling
 syntax on
 
 " Spaces are better than tabs
@@ -99,5 +100,5 @@ nnoremap <leader>q gqap
 " shortcut to toggle spelling
 nmap <leader>s :setlocal spell! spelllang=en_us<CR>
 
-" remap space to append a single character
-nnoremap <Space> a_<Esc>r
+" remap space to insert a single character
+nnoremap <Space> i_<Esc>r
