@@ -98,3 +98,6 @@ nnoremap <leader>q gqap
 
 " shortcut to toggle spelling
 nmap <leader>s :setlocal spell! spelllang=en_us<CR>
+
+" remap space to append a single character
+nnoremap <Space> a_<Esc>r
