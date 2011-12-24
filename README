@@ -1,3 +1,6 @@
 This repository hosts my vimrc. Feel free to fork it or make suggestions.
 
 I'll keep updating it as I see new cool things to add.
+
+plugins:
+  The headerGuard.vim script generates a header guard based on the filename.
