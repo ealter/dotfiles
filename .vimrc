@@ -65,9 +65,10 @@ inoremap kj <Esc>
 " Turn off annoying error bells
 set noerrorbells
 set novisualbell
+
 "Make the cursor move as expected with wrapping lines
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
+"nnoremap j gj
+"nnoremap k gk
 
 " Swap ; and : Convinient
 nnoremap ; :
@@ -78,27 +79,27 @@ set makeprg=./compile
 map <F9> :w<Cr>:make<Cr>
 
 "Remap split movements
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-map <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h
 
 "quick insertion of a newline by pressing enter
-nmap <CR> o<Esc>
+nnoremap <CR> o<Esc>
 
 " shortcuts for copying to clipboard
-nmap <leader>y "*y
-nmap <leader>Y "*yy
-nmap <leader>p "*p
+nnoremap <leader>y "*y
+nnoremap <leader>Y "*yy
+nnoremap <leader>p "*p
 
 "Press Ctrl-N to turn off highlighting
-nmap <silent> <C-N> :silent noh<CR>
+nnoremap <silent> <C-N> :silent noh<CR>
 
 ",q to reformat paragraph
 nnoremap <leader>q gqap
 
 " shortcut to toggle spelling
-nmap <leader>s :setlocal spell! spelllang=en_us<CR>
+nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 
 " remap space to insert a single character
 nnoremap <Space> i_<Esc>r
