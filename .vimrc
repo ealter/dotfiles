@@ -8,6 +8,7 @@ set sm "show matching braces
 set number " show line numbers
 set ruler
 set showcmd
+set ignorecase
 set wildmenu
 set scrolloff=2 "2 lines above/below cursor when scrolling
 syntax on
