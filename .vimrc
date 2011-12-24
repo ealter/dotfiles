@@ -105,4 +105,4 @@ nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 nnoremap <Space> i_<Esc>r
 
 "PLUGINS
-source headerGuard.vim
+source ~/vim/headerGuard.vim
