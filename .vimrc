@@ -103,3 +103,6 @@ nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 
 " remap space to insert a single character
 nnoremap <Space> i_<Esc>r
+
+"PLUGINS
+source headerGuard.vim
