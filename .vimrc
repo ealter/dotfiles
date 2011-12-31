@@ -7,6 +7,8 @@ set title "show title in console bar
 set sm "show matching braces
 set number " show line numbers
 set ruler
+set smartcase
+set smartindent
 set showcmd
 set wildmenu
 set scrolloff=2 "2 lines above/below cursor when scrolling
