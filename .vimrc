@@ -6,6 +6,7 @@ set cindent "make smartindent if not c
 set title "show title in console bar
 set sm "show matching braces
 set number " show line numbers
+set hls "do highlighting
 set ruler
 set smartcase
 set smartindent
