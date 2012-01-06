@@ -2,13 +2,14 @@
 "runtime bundles/tplugin_vim/macros/tplugin.vim
 
 set autoindent
-set cindent "make smartindent if not c
+set smartindent
 set title "show title in console bar
 set sm "show matching braces
 set number " show line numbers
+set hls "do highlighting
 set ruler
 set smartcase
-set smartindent
+set incsearch "Incremental search
 set showcmd
 set ignorecase
 set wildmenu
@@ -88,7 +89,7 @@ noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
 
 "quick insertion of a newline by pressing enter
-nnoremap <CR> o<Esc>
+nnoremap <CR> :put=''
 
 " shortcuts for copying to clipboard
 nnoremap <leader>y "*y
@@ -106,6 +107,11 @@ nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 
 " remap space to insert a single character
 nnoremap <Space> i_<Esc>r
+
+"File type specific
+
+"C, C++, Java
+autocmd Filetype c,cpp,java set cindent 
 
 "PLUGINS
 source $HOME/vim/headerGuard.vim
