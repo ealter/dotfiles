@@ -2,14 +2,13 @@
 "runtime bundles/tplugin_vim/macros/tplugin.vim
 
 set autoindent
-set cindent "make smartindent if not c
+set smartindent
 set title "show title in console bar
 set sm "show matching braces
 set number " show line numbers
 set hls "do highlighting
 set ruler
 set smartcase
-set smartindent
 set showcmd
 set wildmenu
 set scrolloff=2 "2 lines above/below cursor when scrolling
@@ -106,6 +105,11 @@ nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 
 " remap space to insert a single character
 nnoremap <Space> i_<Esc>r
+
+"File type specific
+
+"C, C++, Java
+autocmd Filetype c,cpp,java set cindent 
 
 "PLUGINS
 source ~/vim/headerGuard.vim
