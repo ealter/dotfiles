@@ -10,6 +10,7 @@ set hls "do highlighting
 set ruler
 set smartcase
 set incsearch "Incremental search
+set hlsearch
 set showcmd
 set ignorecase
 set wildmenu
