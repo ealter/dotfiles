@@ -88,7 +88,7 @@ noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
 
 "quick insertion of a newline by pressing enter
-nnoremap <CR> o<Esc>
+nnoremap <CR> :put=''
 
 " shortcuts for copying to clipboard
 nnoremap <leader>y "*y
