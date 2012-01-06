@@ -9,6 +9,7 @@ set number " show line numbers
 set hls "do highlighting
 set ruler
 set smartcase
+set incsearch "Incremental search
 set showcmd
 set wildmenu
 set scrolloff=2 "2 lines above/below cursor when scrolling
