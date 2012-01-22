@@ -114,5 +114,8 @@ nnoremap <Space> i_<Esc>r
 "C, C++, Java
 autocmd Filetype c,cpp,java set cindent 
 
+"impcore
+au BufNewFile,BufRead *.imp set filetype=lisp
+
 "PLUGINS
 source $HOME/vim/headerGuard.vim
