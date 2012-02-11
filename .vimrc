@@ -116,3 +116,6 @@ au BufNewFile,BufRead *.imp set filetype=lisp
 
 "PLUGINS
 source $HOME/vim/headerGuard.vim
+
+set background=dark
+colorscheme solarized

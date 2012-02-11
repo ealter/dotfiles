@@ -4,3 +4,9 @@ I'll keep updating it as I see new cool things to add.
 
 plugins:
   The headerGuard.vim script generates a header guard based on the filename.
+
+Color scheme:
+  I got the color scheme from
+  https://github.com/altercation/vim-colors-solarized
+  If you do not wish to use it, feel free to comment out the line:
+    colorscheme solarized
