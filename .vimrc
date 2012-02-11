@@ -80,7 +80,8 @@ nnoremap ; :
 nnoremap :: ;
 
 "Compile with 1 step
-set makeprg=./compile
+"set makeprg=./compile
+set makeprg=make
 map <F9> :w<Cr>:make<Cr>
 
 "Remap split movements
@@ -99,9 +100,6 @@ nnoremap <leader>p "*p
 
 "Press Ctrl-N to turn off highlighting
 nnoremap <silent> <C-N> :silent noh<CR>
-
-",q to reformat paragraph
-nnoremap <leader>q gqap
 
 " shortcut to toggle spelling
 nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
