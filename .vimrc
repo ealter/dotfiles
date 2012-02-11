@@ -1,6 +1,3 @@
-"Load plugins
-"runtime bundles/tplugin_vim/macros/tplugin.vim
-
 set autoindent
 set smartindent
 set title "show title in console bar
