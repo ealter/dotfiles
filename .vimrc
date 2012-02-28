@@ -102,7 +102,7 @@ nnoremap <silent> <C-N> :silent noh<CR>
 nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 
 " remap space to insert a single character
-nnoremap <Space> i_<Esc>r
+nnoremap <silent> <Space> :exec "normal i".nr2char(getchar())."\e"<CR>
 
 "File type specific
 
