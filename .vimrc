@@ -16,6 +16,7 @@ syntax on
 
 " Spaces are better than tabs
 set expandtab
+au BufRead,BufNewFile Makefile set ts=4 sw=4 noexpandtab
 set smarttab
 set tabstop=2
 set shiftwidth=2
