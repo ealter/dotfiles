@@ -96,6 +96,9 @@ nnoremap <leader>y "+y
 nnoremap <leader>Y "+yy
 nnoremap <leader>p "+p
 
+"Change Y to make sense
+nnoremap Y y$
+
 "Press Ctrl-N to turn off highlighting
 nnoremap <silent> <C-N> :silent noh<CR>
 
