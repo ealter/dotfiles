@@ -92,9 +92,9 @@ noremap <C-h> <C-w>h
 nnoremap <silent> <CR> :put=''<CR>
 
 " shortcuts for copying to clipboard
-nnoremap <leader>y "*y
-nnoremap <leader>Y "*yy
-nnoremap <leader>p "*p
+nnoremap <leader>y "+y
+nnoremap <leader>Y "+yy
+nnoremap <leader>p "+p
 
 "Press Ctrl-N to turn off highlighting
 nnoremap <silent> <C-N> :silent noh<CR>
