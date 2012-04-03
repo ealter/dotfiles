@@ -10,3 +10,6 @@ Color scheme:
   https://github.com/altercation/vim-colors-solarized
   If you do not wish to use it, feel free to comment out the line:
     colorscheme solarized
+
+Credit for the python and sh setup scripts goes to
+https://github.com/akhaku/akhaku-vimrc.git

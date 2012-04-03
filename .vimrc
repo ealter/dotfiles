@@ -1,3 +1,5 @@
+call pathogen#infect()
+
 set autoindent
 set smartindent
 set title "show title in console bar
@@ -121,5 +123,5 @@ source $HOME/vim/headerGuard.vim
 
 set background=dark
 set t_Co=256
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 colorscheme solarized
