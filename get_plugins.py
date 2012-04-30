@@ -1,7 +1,7 @@
 import os
  
 plugins=[{"name":"supertab", "url":"git://github.com/tsaleh/vim-supertab.git"}]
- 
+#https://github.com/kien/ctrlp.vim 
 bundle_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'bundle/')
  
 print "Removing all current plugins!"
