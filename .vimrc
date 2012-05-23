@@ -84,7 +84,8 @@ nnoremap :: ;
 "Compile with 1 step
 "set makeprg=./compile
 set makeprg=make
-map <F9> :w<Cr>:make<Cr>
+imap <F9> <Esc><F9>
+noremap <F9> <Esc>:w<Cr>:make<Cr>
 
 "Remap split movements
 noremap <C-j> <C-w>j
@@ -125,5 +126,5 @@ source $HOME/vim/headerGuard.vim
 
 set background=dark
 set t_Co=256
-"let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 colorscheme solarized
