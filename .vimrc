@@ -104,6 +104,10 @@ nnoremap <leader>p "+p
 "Change Y to make sense
 nnoremap Y y$
 
+" visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
+
 "Press Ctrl-N to turn off highlighting
 nnoremap <silent> <C-N> :silent noh<CR>
 
@@ -114,6 +118,8 @@ nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 nnoremap <silent> <Space> :exec "normal i".nr2char(getchar())."\e"<CR>
 
 "File type specific
+
+set wildignore=*.o,*.ui,*.uo,*.exe
 
 "C, C++, Java
 autocmd Filetype c,cpp,java set cindent 
