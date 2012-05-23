@@ -119,7 +119,7 @@ nnoremap <silent> <Space> :exec "normal i".nr2char(getchar())."\e"<CR>
 
 "File type specific
 
-set wildignore=*.o,*.ui,*.uo,*.exe
+set wildignore=*.o,*.ui,*.uo,*.exe,.git
 
 "C, C++, Java
 autocmd Filetype c,cpp,java set cindent 
