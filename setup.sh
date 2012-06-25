@@ -29,4 +29,6 @@ Requires Vim7
 """
 move_old_vim_files
 setup_vim_softlinks
+git submodule init
+git submodule update
 
