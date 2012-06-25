@@ -21,12 +21,6 @@ setup_vim_softlinks(){
     printf "Done.\n\n"
 }
  
-get_all_plugins(){
-    current_dir=`pwd`
-    printf "getting plugins now\n"
-    python "$current_dir/get_plugins.py"
-}
- 
 printf """
 Eliot's Vimrc
 @author: Ammar Khaku (akhaku)
@@ -35,4 +29,4 @@ Requires Vim7
 """
 move_old_vim_files
 setup_vim_softlinks
-get_all_plugins
+
