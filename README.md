@@ -2,14 +2,12 @@ This repository hosts my vimrc. Feel free to fork it or make suggestions.
 
 I'll keep updating it as I see new cool things to add.
 
-plugins:
+###plugins:
   The headerGuard.vim script generates a header guard based on the filename.
 
-Color scheme:
-  I got the color scheme from
-  https://github.com/altercation/vim-colors-solarized
+###Color scheme:
   If you do not wish to use it, feel free to comment out the line:
-    colorscheme solarized
+    ``colorscheme solarized``
 
-Credit for the python and sh setup scripts goes to
+Credit for the sh setup script goes to
 https://github.com/akhaku/akhaku-vimrc.git
