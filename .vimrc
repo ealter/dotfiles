@@ -120,7 +120,7 @@ nnoremap <silent> <Space> :exec "normal i".nr2char(getchar())."\e"<CR>
 inoremap <leader><Tab> <C-V><Tab>
 
 "" Split vertical window and switch to it
-nnoremap <leader>s <C-w>v<C-w>l
+nnoremap <leader>v <C-w>v<C-w>l
 
 "" Split horizontal window and switch to it
 nnoremap <leader>h :split<CR>
