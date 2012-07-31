@@ -142,8 +142,10 @@ au BufNewFile,BufRead *.imp set filetype=lisp
 source $HOME/vim/headerGuard.vim
 
 set background=dark
-set t_Co=256
-let g:solarized_termcolors=256
+if !has('gui_running')
+  set t_Co=256
+  "let g:solarized_termcolors=256
+endif
 colorscheme solarized
 
 "Functions
