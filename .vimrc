@@ -33,6 +33,10 @@ set showmatch
 "break away from vi compatibility
 set nocompatible
 
+if has("gui_running")
+  set guicursor=a:blinkon0
+endif
+
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
   augroup redhat
