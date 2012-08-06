@@ -18,6 +18,7 @@ setup_vim_softlinks(){
     current_dir=`pwd`
     ln -s "$current_dir/.vimrc" "$HOME/.vimrc"
     ln -s "$current_dir" "$HOME/.vim"
+    mkdir -p "$current_dir/undodir"
     printf "Done.\n\n"
 }
  

@@ -142,6 +142,10 @@ autocmd Filetype c,cpp,java set cindent
 "impcore
 au BufNewFile,BufRead *.imp set filetype=lisp
 
+"Undoing is awesome
+set undodir=~/.vim/undodir
+set undofile
+
 "PLUGINS
 source $HOME/vim/headerGuard.vim
 
