@@ -135,6 +135,9 @@ nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl
 "Makes splits easier (since s is pretty useless anyway)
 nnoremap s <C-W>
 
+"Hell yeh paste mode!
+au InsertLeave * set nopaste
+
 "File type specific
 
 set wildignore=*.o,*.ui,*.uo,*.exe
