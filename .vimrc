@@ -132,6 +132,9 @@ nnoremap <leader>h :split<CR>
 "" Strip all trailing whitespace in the current file
 nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
+"Makes splits easier (since s is pretty useless anyway)
+nnoremap s <C-W>
+
 "File type specific
 
 set wildignore=*.o,*.ui,*.uo,*.exe
