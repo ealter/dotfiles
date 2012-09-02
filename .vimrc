@@ -90,12 +90,6 @@ set makeprg=make
 imap <F9> <Esc><F9>
 noremap <F9> <Esc>:w<Cr>:make<Cr>
 
-"Remap split movements
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
-
 "quick insertion of a newline by pressing enter
 nnoremap <silent> <CR> :put=''<CR>
 
@@ -111,7 +105,6 @@ nnoremap Y y$
 vnoremap < <gv
 vnoremap > >gv
 
-"Press Ctrl-N to turn off highlighting
 nnoremap <silent> <leader><Space> :silent noh<CR>
 
 " shortcut to toggle spelling
@@ -122,12 +115,6 @@ nnoremap <silent> <Space> :exec "normal i".nr2char(getchar())."\e"<CR>
 
 " Inserts hard tab in INSERT mode
 inoremap <leader><Tab> <C-V><Tab>
-
-"" Split vertical window and switch to it
-nnoremap <leader>v <C-w>v<C-w>l
-
-"" Split horizontal window and switch to it
-nnoremap <leader>h :split<CR>
 
 "" Strip all trailing whitespace in the current file
 nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
