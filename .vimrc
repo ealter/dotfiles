@@ -11,6 +11,7 @@ set smartcase
 set incsearch "Incremental search
 set hlsearch
 set showcmd
+set cmdheight=2 " avoid 'Press Enter to continue'
 set ignorecase
 set wildmenu
 set ttyfast
