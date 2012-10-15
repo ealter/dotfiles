@@ -13,6 +13,7 @@ set hlsearch
 set showcmd
 set ignorecase
 set wildmenu
+set ttyfast
 syntax on
 
 " Spaces are better than tabs
@@ -22,16 +23,14 @@ set smarttab
 set tabstop=2
 set shiftwidth=2
 
-set bs=indent,eol,start		" allow backspacing over everything in insert mode
+set bs=indent,eol,start " allow backspacing over everything in insert mode
 
-"We like 80 columns
-set textwidth=80
+set textwidth=80 "We like 80 columns
+set showmatch "show matching brackets
+set nocompatible "break away from vi compatibility
 
-"show matching brackets
-set showmatch
-
-"break away from vi compatibility
-set nocompatible
+set list
+set listchars=tab:▸\ 
 
 if has("gui_running")
   set guicursor=a:blinkon0
@@ -136,8 +135,10 @@ autocmd Filetype c,cpp,java set cindent
 au BufNewFile,BufRead *.imp set filetype=lisp
 
 "Undoing is awesome
-set undodir=~/.vim/undodir
-set undofile
+if(has('persistent_undo'))
+  set undodir=~/.vim/undodir
+  set undofile
+endif
 
 "PLUGINS
 source $HOME/vim/headerGuard.vim
@@ -145,7 +146,9 @@ source $HOME/vim/headerGuard.vim
 set background=dark
 if !has('gui_running')
   set t_Co=256
-  "let g:solarized_termcolors=256
+  if $TERM != "xterm"
+    let g:solarized_termcolors=256
+  endif
 endif
 colorscheme solarized
 
