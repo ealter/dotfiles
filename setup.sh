@@ -19,6 +19,8 @@ setup_vim_softlinks(){
     ln -s "$current_dir/.vimrc" "$HOME/.vimrc"
     ln -s "$current_dir" "$HOME/.vim"
     mkdir -p "$current_dir/undodir"
+    mkdir -p "$current_dir/vim_swap"
+    mkdir -p "$current_dir/backup"
     printf "Done.\n\n"
 }
  

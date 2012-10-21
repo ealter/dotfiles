@@ -137,9 +137,14 @@ au BufNewFile,BufRead *.imp set filetype=lisp
 
 "Undoing is awesome
 if(has('persistent_undo'))
-  set undodir=~/.vim/undodir
+  set undodir=$HOME/.vim/undodir
   set undofile
 endif
+
+"Move the swap files to their own directory
+set dir=$HOME/.vim/vim_swap//,/var/tmp//,/tmp//,.
+set backupdir=$HOME/.vim/backup//,/var/tmp//,/tmp//,.
+set backup
 
 "PLUGINS
 source $HOME/vim/headerGuard.vim
