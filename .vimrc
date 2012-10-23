@@ -132,6 +132,12 @@ set wildignore=*.o,*.ui,*.uo,*.exe,.git
 "C, C++, Java
 autocmd Filetype c,cpp,java set cindent 
 
+function! InitLaTex()
+  set makeprg=pdflatex\ %\ &&\ evince\ $(basename\ %\ .tex).pdf
+endfunction
+
+autocmd Filetype tex call InitLaTex()
+
 "impcore
 au BufNewFile,BufRead *.imp set filetype=lisp
 
