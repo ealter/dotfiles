@@ -85,10 +85,9 @@ nnoremap ; :
 nnoremap :: ;
 
 "Compile with 1 step
-"set makeprg=./compile
 set makeprg=make
 imap <F9> <Esc><F9>
-noremap <F9> <Esc>:w<Cr>:make<Cr>
+noremap <F9> <Esc>:wa<Cr>:make<Cr>
 
 "quick insertion of a newline by pressing enter
 nnoremap <silent> <CR> :put=''<CR>
@@ -138,8 +137,10 @@ endfunction
 
 autocmd Filetype tex call InitLaTex()
 
-"impcore
+"random filetypes
 au BufNewFile,BufRead *.imp set filetype=lisp
+au BufNewFile,BufRead *.pde set filetype=java
+autocmd BufNewFile,BufRead *.pde set makeprg=processing-java\ --sketch=`pwd`\ --output=`mktmp -d`\ --run
 
 "Undoing is awesome
 if(has('persistent_undo'))
