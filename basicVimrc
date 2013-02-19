@@ -1,0 +1,56 @@
+"This acts as a very simple vimrc with useful for beginners (without all of the
+"personal modifications that not everyone would like). I like to think of this
+"as settings that most people would enjoy having. I try not to override any
+"defaults. If I were to introduce someone to vim, I'd give them this vimrc,
+"rather than my normal one.
+
+"The only special things this does is remap <F9> to saving and compiling (with
+"make). It also makes the tab character insert 2 spaces, rather than a tab.
+set nocompatible "break away from vi compatibility
+
+set title "show title in console bar
+set number " show line numbers
+set hls "do highlighting
+set ruler
+set smartcase
+set incsearch "Incremental search
+set hlsearch
+set showcmd
+set cmdheight=2 " avoid 'Press Enter to continue'
+set ignorecase
+set wildmenu
+set showmatch "show matching brackets
+syntax on
+
+" Spaces are better than tabs
+set autoindent
+set smartindent
+set expandtab
+au BufRead,BufNewFile Makefile set ts=4 sw=4 noexpandtab
+set smarttab
+set tabstop=2 "Change this line to set how large tabs are
+set shiftwidth=2
+
+set bs=indent,eol,start " allow backspacing over everything in insert mode
+
+" Turn off annoying error bells
+set noerrorbells
+set novisualbell
+
+"Compile with 1 step
+set makeprg=make
+imap <F9> <Esc><F9>
+noremap <F9> <Esc>:wa<Cr>:make<Cr>
+
+"Change Y to make sense
+nnoremap Y y$
+
+"Hell yeh paste mode!
+au InsertLeave * set nopaste
+
+"File type specific
+set wildignore=*.o,*.ui,*.uo,*.exe,.git
+
+"C, C++, Java
+autocmd Filetype c,cpp,java set cindent 
+
