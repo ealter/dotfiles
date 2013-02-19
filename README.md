@@ -10,8 +10,8 @@ I'll keep updating it as I see new cool things to add.
     ``colorscheme solarized``
 
 ###Important Keyboard remappings
-* The map leader is ``,``.
-* Both ``kj`` and ``jk`` are remapped to ``<Esc>``. This allows you to mash those 2 keys
+* The map leader is ``,``
+* Both ``kj`` and ``jk`` are remapped to ``<Esc>`` This allows you to mash those 2 keys
 * ``;`` is remapped to ``:`` (and ``::`` is remapped to ``;``)
 * You can save and compile in one step by pressing ``<F9>``
 * Insert a new line below the current line in normal mode by pressing enter
