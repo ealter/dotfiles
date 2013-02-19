@@ -1,9 +1,8 @@
 call pathogen#infect()
 
-set autoindent
-set smartindent
+set nocompatible "break away from vi compatibility
+
 set title "show title in console bar
-set sm "show matching braces
 set number " show line numbers
 set hls "do highlighting
 set ruler
@@ -15,9 +14,12 @@ set cmdheight=2 " avoid 'Press Enter to continue'
 set ignorecase
 set wildmenu
 set ttyfast
+set showmatch "show matching brackets
 syntax on
 
 " Spaces are better than tabs
+set autoindent
+set smartindent
 set expandtab
 au BufRead,BufNewFile Makefile set ts=4 sw=4 noexpandtab
 set smarttab
@@ -26,9 +28,6 @@ set shiftwidth=2
 
 set bs=indent,eol,start " allow backspacing over everything in insert mode
 
-set textwidth=80 "We like 80 columns
-set showmatch "show matching brackets
-set nocompatible "break away from vi compatibility
 
 set list
 set listchars=tab:▸\ 
@@ -51,6 +50,7 @@ endif
 let mapleader="," " change the leader to be a comma vs slash
 
 "Highlight lines over 80 chars
+set textwidth=80 "We like 80 columns
 nnoremap <Leader>H :call<SID>LongLineHLToggle()<cr>
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
 
