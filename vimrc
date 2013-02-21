@@ -140,7 +140,7 @@ autocmd Filetype tex call InitLaTex()
 "random filetypes
 au BufNewFile,BufRead *.imp set filetype=lisp
 au BufNewFile,BufRead *.pde set filetype=java
-autocmd BufNewFile,BufRead *.pde set makeprg=processing-java\ --sketch=`pwd`\ --output=`mktmp -d`\ --run
+autocmd BufNewFile,BufRead *.pde set makeprg=processing-java\ --sketch=`pwd`\ --output=`mktemp\ -d`\ --run
 
 "Undoing is awesome
 if(has('persistent_undo'))
