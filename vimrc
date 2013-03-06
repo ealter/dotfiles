@@ -126,13 +126,14 @@ au InsertLeave * set nopaste
 
 "File type specific
 
-set wildignore=*.o,*.ui,*.uo,*.exe,.git
+set wildignore=*.o,*.ui,*.uo,*.exe,.git,*.pdf
 
 "C, C++, Java
 autocmd Filetype c,cpp,java set cindent 
 
 function! InitLaTex()
   set makeprg=pdflatex\ %\ &&\ evince\ $(basename\ %\ .tex).pdf
+  "set textwidth=0 "Don't wrap columns since that messes up LaTeX code
 endfunction
 
 autocmd Filetype tex call InitLaTex()
@@ -140,7 +141,7 @@ autocmd Filetype tex call InitLaTex()
 "random filetypes
 au BufNewFile,BufRead *.imp set filetype=lisp
 au BufNewFile,BufRead *.pde set filetype=java
-autocmd BufNewFile,BufRead *.pde set makeprg=processing-java\ --sketch=`pwd`\ --output=`mktemp\ -d`\ --run
+autocmd BufNewFile,BufRead *.pde set makeprg=processing-java\ --sketch=`pwd`\ --output=$(mktemp\ -d)\ --run\ --force
 
 "Undoing is awesome
 if(has('persistent_undo'))
@@ -162,6 +163,9 @@ if !has('gui_running')
   if $TERM != "xterm"
     let g:solarized_termcolors=256
   endif
+else
+  set guioptions+=LlRrb 
+  set guioptions-=LlRrb "Get rid of all scroll bars in gvim
 endif
 colorscheme solarized
 
