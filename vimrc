@@ -115,6 +115,9 @@ nnoremap <silent> <Space> :exec "normal i".nr2char(getchar())."\e"<CR>
 " Inserts hard tab in INSERT mode
 inoremap <leader><Tab> <C-V><Tab>
 
+" Shows the directory contents in a new split
+nnoremap <silent> <leader>ls :new<CR>:r!ls<CR>
+
 "" Strip all trailing whitespace in the current file
 nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
