@@ -69,8 +69,6 @@ endfunction
 
 " remap kj to escape insert mode (since you'll probably never type this)
 inoremap kj <Esc>
-" more likely that you'd type this one, but it allows you to mash the 2 keys
-inoremap jk <Esc>
 
 " Turn off annoying error bells
 set noerrorbells
