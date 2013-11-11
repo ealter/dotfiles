@@ -161,9 +161,7 @@ source $HOME/vim/headerGuard.vim
 set background=dark
 if !has('gui_running')
   set t_Co=256
-  if $TERM != "xterm"
-    let g:solarized_termcolors=256
-  endif
+  #let g:solarized_termcolors=256
 else
   set guioptions+=LlRrb 
   set guioptions-=LlRrb "Get rid of all scroll bars in gvim
