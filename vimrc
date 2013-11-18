@@ -92,6 +92,7 @@ nnoremap <silent> <CR> :put=''<CR>
 
 " shortcuts for copying to clipboard
 nnoremap <leader>y "+y
+vnoremap <leader>y "+y
 nnoremap <leader>Y "+yy
 nnoremap <leader>p "+p
 
@@ -127,13 +128,16 @@ au InsertLeave * set nopaste
 
 "File type specific
 
-set wildignore=*.o,*.ui,*.uo,*.exe,.git,*.pdf
+set wildignore=*.o,*.ui,*.uo,*.exe,.git,*.pdf,*.hi
 
 "C, C++, Java
 autocmd Filetype c,cpp,java set cindent 
+autocmd BufNewFile,BufRead *.elm setf elm
+
+autocmd BufNewFile,BufRead *.elm set makeprg=google-chrome\ 'http://localhost:8000/%'
 
 function! InitLaTex()
-  set makeprg=pdflatex\ %\ &&\ evince\ $(basename\ %\ .tex).pdf
+  set makeprg=pdflatex\ %\ &&\ evince\ $(basename\ %\ .tex).pdf\ 2>/dev/null
   "set textwidth=0 "Don't wrap columns since that messes up LaTeX code
 endfunction
 
