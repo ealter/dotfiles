@@ -23,11 +23,10 @@ set smartindent
 set expandtab
 au BufRead,BufNewFile Makefile set ts=4 sw=4 noexpandtab
 set smarttab
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 
 set bs=indent,eol,start " allow backspacing over everything in insert mode
-
 
 set list
 set listchars=tab:▸\ 
@@ -117,7 +116,7 @@ inoremap <leader><Tab> <C-V><Tab>
 nnoremap <silent> <leader>ls :new<CR>:r!ls<CR>
 
 "" Strip all trailing whitespace in the current file
-nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+"nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 "Makes splits easier (since s is pretty useless anyway)
 nnoremap s <C-W>
@@ -161,7 +160,7 @@ source $HOME/vim/headerGuard.vim
 set background=dark
 if !has('gui_running')
   set t_Co=256
-  #let g:solarized_termcolors=256
+  let g:solarized_termcolors=256
 else
   set guioptions+=LlRrb 
   set guioptions-=LlRrb "Get rid of all scroll bars in gvim
