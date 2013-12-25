@@ -35,16 +35,11 @@ if has("gui_running")
   set guicursor=a:blinkon0
 endif
 
-" Only do this part when compiled with support for autocommands
-if has("autocmd")
-  augroup redhat
-    " When editing a file, always jump to the last cursor position
-    autocmd BufReadPost *
-    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-    \   exe "normal! g'\"" |
-    \ endif
-  augroup END
-endif
+" When editing a file, always jump to the last cursor position
+autocmd BufReadPost *
+\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+\   exe "normal! g'\"" |
+\ endif
 
 let mapleader="," " change the leader to be a comma vs slash
 
@@ -72,10 +67,6 @@ inoremap kj <Esc>
 " Turn off annoying error bells
 set noerrorbells
 set novisualbell
-
-"Make the cursor move as expected with wrapping lines
-"nnoremap j gj
-"nnoremap k gk
 
 " Swap ; and : Convinient
 nnoremap ; :
