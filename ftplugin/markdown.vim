@@ -18,4 +18,6 @@ else
   let b:undo_ftplugin = "setl cms< com< fo< flp<"
 endif
 
+setlocal makeprg=pandoc\ -f\ markdown\ -t\ pdf\ %\ &&\ $(basename\ %\ .tex).pdf\ 2>/dev/null
+
 " vim:set sw=2:
