@@ -74,8 +74,8 @@ nnoremap :: ;
 
 "Compile with 1 step
 set makeprg=make
-imap <F9> <Esc><F9>
-noremap <F9> <Esc>:wa<Cr>:make<Cr>
+imap <leader>w <Esc><leader>w
+nnoremap <leader>w <Esc>:wa<Cr>:make<Cr>
 
 "quick insertion of a newline by pressing enter
 nnoremap <silent> <CR> :put=''<CR>
