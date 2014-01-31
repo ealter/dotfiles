@@ -79,6 +79,8 @@ nnoremap <leader>w <Esc>:wa<Cr>:make<Cr>
 
 "quick insertion of a newline by pressing enter
 nnoremap <silent> <CR> :put=''<CR>
+autocmd CmdwinEnter * nnoremap <CR> <CR>
+autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
 " shortcuts for copying to clipboard
 nnoremap <leader>y "+y
