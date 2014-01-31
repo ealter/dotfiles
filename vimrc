@@ -126,13 +126,6 @@ autocmd BufNewFile,BufRead *.elm setf elm
 
 autocmd BufNewFile,BufRead *.elm set makeprg=google-chrome\ 'http://localhost:8000/%'
 
-function! InitLaTex()
-  set makeprg=pdflatex\ %\ &&\ evince\ $(basename\ %\ .tex).pdf\ 2>/dev/null
-  "set textwidth=0 "Don't wrap columns since that messes up LaTeX code
-endfunction
-
-autocmd Filetype tex call InitLaTex()
-
 "random filetypes
 au BufNewFile,BufRead *.imp set filetype=lisp
 au BufNewFile,BufRead *.pde set filetype=java
