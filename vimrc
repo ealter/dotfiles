@@ -78,7 +78,7 @@ imap <leader>w <Esc><leader>w
 nnoremap <leader>w <Esc>:wa<Cr>:make<Cr>
 
 "quick insertion of a newline by pressing enter
-nnoremap <silent> <CR> :put=''<CR>
+nnoremap <silent> <CR> :put=repeat([''],v:count)<CR>
 autocmd CmdwinEnter * nnoremap <CR> <CR>
 autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
