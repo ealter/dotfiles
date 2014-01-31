@@ -73,7 +73,6 @@ nnoremap ; :
 nnoremap :: ;
 
 "Compile with 1 step
-set makeprg=make
 imap <leader>w <Esc><leader>w
 nnoremap <leader>w <Esc>:wa<Cr>:make<Cr>
 
@@ -121,6 +120,8 @@ au InsertLeave * set nopaste
 "File type specific
 
 set wildignore=*.o,*.ui,*.uo,*.exe,.git,*.pdf,*.hi
+
+filetype plugin on
 
 "C, C++, Java
 autocmd Filetype c,cpp,java set cindent 
