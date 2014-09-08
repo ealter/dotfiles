@@ -146,6 +146,9 @@ set dir=$HOME/.vim/vim_swap//,/var/tmp//,/tmp//,.
 set backupdir=$HOME/.vim/backup//,/var/tmp//,/tmp//,.
 set backup
 
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+
 set background=dark
 if !has('gui_running')
   set t_Co=256
