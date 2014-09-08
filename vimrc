@@ -73,7 +73,7 @@ nnoremap ; :
 nnoremap :: ;
 
 "Compile with 1 step
-imap <leader>w <Esc><leader>w
+"imap <leader>w <Esc><leader>w
 nnoremap <leader>w <Esc>:wa<Cr>:make<Cr>
 
 "quick insertion of a newline by pressing enter
@@ -122,6 +122,7 @@ au InsertLeave * set nopaste
 set wildignore=*.o,*.ui,*.uo,*.exe,.git,*.pdf,*.hi
 
 filetype plugin on
+filetype indent plugin on
 
 "C, C++, Java
 autocmd Filetype c,cpp,java set cindent 
