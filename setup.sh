@@ -23,6 +23,23 @@ setup_vim_softlinks(){
     mkdir -p "$current_dir/.vim/backup"
     printf "Done.\n\n"
 }
+
+setup_other_softlinks(){
+    set -x
+    printf "Making soft links to .vim and .vimrc\n"
+    files=".bash_profile .gitconfig"
+    current_dir=`pwd`
+    for file in $files; do
+        if [ -f "$HOME/$file" ]; then
+            echo "$HOME/$file already exists. Skipping."
+        else
+            echo "Adding $HOME/$file"
+            ln -s "$current_dir/$file" "$HOME/$file"
+        fi
+    done
+    printf "Done.\n\n"
+}
+
  
 printf """
 Eliot's Vimrc
@@ -32,6 +49,7 @@ Requires Vim7
 """
 move_old_vim_files
 setup_vim_softlinks
+setup_other_softlinks
 git submodule init
 git submodule update
 

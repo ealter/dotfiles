@@ -1,0 +1,10 @@
+[user]
+	email = Eliot.Alter@gmail.com
+	name = Eliot Alter
+[diff]
+	tool = vimdiff
+[alias]
+	last = log -l HEAD
+	com = commit -am
+[push]
+	default = simple
