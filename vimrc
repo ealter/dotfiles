@@ -146,9 +146,6 @@ set dir=$HOME/.vim/vim_swap//,/var/tmp//,/tmp//,.
 set backupdir=$HOME/.vim/backup//,/var/tmp//,/tmp//,.
 set backup
 
-"PLUGINS
-source $HOME/vim/headerGuard.vim
-
 set background=dark
 if !has('gui_running')
   set t_Co=256
