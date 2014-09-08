@@ -26,7 +26,7 @@ setup_vim_softlinks(){
 
 setup_other_softlinks(){
     printf "Making soft links to .vim and .vimrc\n"
-    files=".bash_profile .gitconfig"
+    files=".bash_profile .gitconfig .bashrc"
     current_dir=`pwd`
     for file in $files; do
         if [ -f "$HOME/$file" ]; then
