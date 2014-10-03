@@ -117,9 +117,15 @@ nnoremap s <C-W>
 "Hell yeh paste mode!
 au InsertLeave * set nopaste
 
+"cd to the current directory and then print where you are
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" Remove trailing whitespace on ,tw
+nnoremap <silent> <leader>tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
 "File type specific
 
-set wildignore=*.o,*.ui,*.uo,*.exe,.git,*.pdf,*.hi
+set wildignore=*.o,*.ui,*.uo,*.exe,.git,*.pdf,*.hi,*.pyc
 
 filetype plugin on
 filetype indent plugin on
@@ -148,6 +154,7 @@ set backup
 
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
+set complete-=i
 
 set background=dark
 if !has('gui_running')
@@ -158,4 +165,17 @@ else
   set guioptions-=LlRrb "Get rid of all scroll bars in gvim
 endif
 colorscheme solarized
+
+if(has('lua'))
+    let g:acp_enableAtStartup = 0
+    " Use neocomplete.
+    let g:neocomplete#enable_at_startup = 1
+    " Use smartcase.
+    let g:neocomplete#enable_smart_case = 1
+    " Set minimum syntax keyword length.
+    let g:neocomplete#sources#syntax#min_keyword_length = 3
+    let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+endif
 
