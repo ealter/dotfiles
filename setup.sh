@@ -10,7 +10,6 @@ if [ -e "$HOME/.vimrc" ]; then
     echo "Moving old .vimrc to .vimrc-old"
     mv "$HOME/.vimrc" "$HOME/.vimrc-old"
 fi
- 
 }
  
 setup_vim_softlinks(){
@@ -25,8 +24,8 @@ setup_vim_softlinks(){
 }
 
 setup_other_softlinks(){
-    printf "Making soft links to .vim and .vimrc\n"
-    files=".bash_profile .gitconfig .bashrc"
+    files=".bash_profile .gitconfig .bashrc .tmux.conf .inputrc"
+    printf "Making soft links to $files and .vim and .vimrc \n"
     current_dir=`pwd`
     for file in $files; do
         if [ -f "$HOME/$file" ]; then

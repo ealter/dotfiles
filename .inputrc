@@ -1,0 +1,4 @@
+set editing-mode vi
+set completion-ignore-case on
+set history-size 30000
+set show-all-if-ambiguous on
