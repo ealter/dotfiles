@@ -4,6 +4,8 @@ alias cp='cp -i'
 alias l='ls'
 
 export PATH=$HOME/bin:$PATH
+export HISTCONTROL=ignorespace:ignoredups
+export HISTIGNORE='fg'
 
 #Put stuff in .bashrc_local that varies based on particular machines
 if [ -f ~/.bashrc_local ]; then
