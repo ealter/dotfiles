@@ -114,6 +114,10 @@ nnoremap s <C-W>
 "Hell yeh paste mode!
 au InsertLeave * set nopaste
 
+"cd into the project root directory
+map <silent> <unique> <Leader>pr <Plug>RooterChangeToRootDirectory
+let g:rooter_manual_only = 1
+
 "cd to the current directory and then print where you are
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 

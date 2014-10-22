@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/vim-rename"]
 	path = .vim/bundle/vim-rename
 	url = https://github.com/wojtekmach/vim-rename.git
+[submodule ".vim/bundle/vim-rooter"]
+	path = .vim/bundle/vim-rooter
+	url = https://github.com/airblade/vim-rooter.git
