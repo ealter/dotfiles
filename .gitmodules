@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/neocomplete"]
 	path = .vim/bundle/neocomplete
 	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule ".vim/bundle/vim-rename"]
+	path = .vim/bundle/vim-rename
+	url = https://github.com/wojtekmach/vim-rename.git
