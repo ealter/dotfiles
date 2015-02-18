@@ -6,10 +6,13 @@ set title "show title in console bar
 set number " show line numbers
 set hlsearch "do highlighting
 set ruler
+set ignorecase
 set smartcase
 set incsearch "Incremental search
 set showcmd
-set cmdheight=2 " avoid 'Press Enter to continue'set wildmenu
+set cmdheight=2 " avoid 'Press Enter to continue'
+set wildmenu
+set wildmode=longest,list,full
 set ttyfast
 set showmatch "show matching brackets
 syntax on
@@ -26,7 +29,7 @@ set shiftwidth=4
 set bs=indent,eol,start " allow backspacing over everything in insert mode
 
 set list
-set listchars=tab:▸\ 
+set listchars=tab:▸\
 
 if has("gui_running")
   set guicursor=a:blinkon0
@@ -38,6 +41,7 @@ autocmd BufReadPost *
 \   exe "normal! g'\"" |
 \ endif
 
+nnoremap ,, ,
 let mapleader="," " change the leader to be a comma vs slash
 
 "Highlight lines over 80 chars
@@ -67,7 +71,7 @@ set novisualbell
 
 " Swap ; and : Convinient
 nnoremap ; :
-nnoremap :: ;
+nnoremap : ;
 
 "Compile with 1 step
 "imap <leader>w <Esc><leader>w
@@ -105,8 +109,7 @@ inoremap <leader><Tab> <C-V><Tab>
 " Shows the directory contents in a new split
 nnoremap <silent> <leader>ls :new<CR>:r!ls<CR>
 
-"" Strip all trailing whitespace in the current file
-"nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+autocmd BufWritePre *.{py,js} :%s/\s\+$//e
 
 "Makes splits easier (since s is pretty useless anyway)
 nnoremap s <C-W>
@@ -124,15 +127,12 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 " Remove trailing whitespace on ,tw
 nnoremap <silent> <leader>tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-"File type specific
-
 set wildignore=*.o,*.ui,*.uo,*.exe,.git,*.pdf,*.hi,*.pyc
 
 filetype plugin on
 filetype indent plugin on
 
-"C, C++, Java
-autocmd Filetype c,cpp,java set cindent 
+autocmd Filetype c,cpp,java set cindent
 autocmd BufNewFile,BufRead *.elm setf elm
 
 autocmd BufNewFile,BufRead *.elm set makeprg=google-chrome\ 'http://localhost:8000/%'
@@ -142,10 +142,30 @@ au BufNewFile,BufRead *.imp set filetype=lisp
 au BufNewFile,BufRead *.pde set filetype=java
 autocmd BufNewFile,BufRead *.pde set makeprg=processing-java\ --sketch=`pwd`\ --output=$(mktemp\ -d)\ --run\ --force
 
+"ctrlp options
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_max_height = 20
+let g:ctrlp_max_files=100000
+let g:ctrlp_use_caching=10
+let g:ctrlp_lazy_update = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let ctrlp_cache_dir = '~/.vim/tmp/ctrlp'
+set wildignore+=build/**
+set wildignore+=htdocs/**
+set wildignore+=*/build/*
+set wildignore+=*/htdocs/*
+
 "Undoing is awesome
 if(has('persistent_undo'))
   set undodir=$HOME/.vim/undodir
   set undofile
+endif
+
+if executable('ag')
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
 "Move the swap files to their own directory
@@ -162,7 +182,7 @@ if !has('gui_running')
   set t_Co=256
   let g:solarized_termcolors=256
 else
-  set guioptions+=LlRrb 
+  set guioptions+=LlRrb
   set guioptions-=LlRrb "Get rid of all scroll bars in gvim
 endif
 colorscheme solarized
@@ -176,6 +196,14 @@ if(has('lua'))
     " Set minimum syntax keyword length.
     let g:neocomplete#sources#syntax#min_keyword_length = 3
     let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+    let g:neocomplete#enable_prefetch = 1
+    let g:neocomplete#use_vimproc = 1
+
+    if !exists('g:neocomplete#sources#omni#input_patterns')
+        let g:neocomplete#sources#omni#input_patterns = {}
+    endif
+    let g:neocomplete#sources#omni#input_patterns.python = ''
+    let g:neocomplete#sources#omni#input_patterns.ruby = ''
 
     inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 endif

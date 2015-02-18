@@ -1,6 +1,2 @@
 *.swp
-undodir
-colors
-backup
-vim_swap
 .netrwhist

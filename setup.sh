@@ -51,3 +51,5 @@ setup_other_softlinks
 git submodule init
 git submodule update
 
+cd .vim/bundle/vimproc.vim && make
+
