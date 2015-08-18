@@ -5,7 +5,7 @@ alias l='ls'
 
 export PATH=$HOME/bin:$PATH
 export HISTCONTROL=ignorespace:ignoredups
-export HISTIGNORE='fg'
+export HISTIGNORE='fg:mm'
 export HISTSIZE=50000
 
 #Put stuff in .bashrc_local that varies based on particular machines
