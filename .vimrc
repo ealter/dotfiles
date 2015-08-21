@@ -19,7 +19,6 @@ syntax on
 
 " Spaces are better than tabs
 set autoindent
-set smartindent
 set expandtab
 au BufRead,BufNewFile Makefile set ts=4 sw=4 noexpandtab
 set smarttab
@@ -28,8 +27,8 @@ set shiftwidth=4
 
 set bs=indent,eol,start " allow backspacing over everything in insert mode
 
-set list
-set listchars=tab:▸\
+" set list
+" set listchars=tab:▸\
 
 if has("gui_running")
   set guicursor=a:blinkon0
@@ -207,4 +206,14 @@ if(has('lua'))
 
     inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 endif
+ 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Work
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    function! WorkSettings()
+        nnoremap <leader>fs :call g:EditPairFile('split')<CR>
+    endfunction
 
+    augroup vimrc-work
+        au BufNewFile,BufRead ~/pg/* call WorkSettings()
+    augroup END
