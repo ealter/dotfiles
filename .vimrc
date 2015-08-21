@@ -17,6 +17,8 @@ set ttyfast
 set showmatch "show matching brackets
 syntax on
 
+set autoread  " Auto reload files when there's no conflict
+
 " Spaces are better than tabs
 set autoindent
 set expandtab
@@ -42,24 +44,6 @@ autocmd BufReadPost *
 
 nnoremap ,, ,
 let mapleader="," " change the leader to be a comma vs slash
-
-"Highlight lines over 80 chars
-set textwidth=80 "We like 80 columns
-nnoremap <Leader>H :call<SID>LongLineHLToggle()<cr>
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
-
-"Credit goes to http://stackoverflow.com/a/1919805/614644
-fun! s:LongLineHLToggle()
-  if !exists('w:longlinehl')
-    match OverLength /\%>80v.\+/
-    let w:longlinehl = 1
-    echo "Long lines highlighted"
-  else
-    match none
-    unl w:longlinehl
-    echo "Long lines unhighlighted"
-  endif
-endfunction
 
 " remap kj to escape insert mode (since you'll probably never type this)
 inoremap kj <Esc>
