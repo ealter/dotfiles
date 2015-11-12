@@ -92,7 +92,8 @@ inoremap <leader><Tab> <C-V><Tab>
 " Shows the directory contents in a new split
 nnoremap <silent> <leader>ls :new<CR>:r!ls<CR>
 
-autocmd BufWritePre *.{py,js} :%s/\s\+$//e
+" Remove trailing whitespace when saving
+autocmd BufWritePre *.{py,js,yaml} :%s/\s\+$//e
 
 "Makes splits easier (since s is pretty useless anyway)
 nnoremap s <C-W>
