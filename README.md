@@ -17,9 +17,7 @@ I'll keep updating it as I see new cool things to add.
 * Other remappings that you can find in the vimrc
 
 ###Other useful things
-* Columns over 80 characters are highlighted
 * Tabs are remapped to 4 spaces
 * Search is incremental
 
-Credit for the sh setup script goes to
-https://github.com/akhaku/akhaku-vimrc.git
+A lot of the setup/organization comes from https://github.com/ViViDboarder/vim-settings

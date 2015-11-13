@@ -1,0 +1,11 @@
+/undodir
+/colors
+/vim_swap
+/backup
+/tmp
+
+/autoload/plug.vim
+/autoload/plug.vim.old
+/plugged/*
+/rc/*.local.rc.vim
+/rc/plugins/*.local.rc.vim
