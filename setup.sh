@@ -1,28 +1,37 @@
-#!/bin/sh
- 
-move_old_vim_files(){
-if [ -e "$HOME/.vim" ]; then
-    echo "Moving old .vim to .vim-old"
-    mv "$HOME/.vim" "$HOME/.vim-old"
-fi
- 
-if [ -e "$HOME/.vimrc" ]; then
-    echo "Moving old .vimrc to .vimrc-old"
-    mv "$HOME/.vimrc" "$HOME/.vimrc-old"
-fi
-}
- 
-setup_vim_softlinks(){
-    printf "Making soft links to .vim and .vimrc\n"
-    current_dir=`pwd`
-    ln -s "$current_dir/vimrc" "$HOME/.vimrc"
-    ln -s "$current_dir/vim" "$HOME/.vim"
-    mkdir -p "$current_dir/vim/undodir"
-    mkdir -p "$current_dir/vim/vim_swap"
-    mkdir -p "$current_dir/vim/backup"
-    printf "Done.\n\n"
-}
+#!/bin/bash
 
+setup_vim(){
+    if [ -d ~/.vim  ] || [ -f ~/.vimrc ] || [ -d ~/.nvim  ] || [ -f ~/.nvimrc ] || [ -d ~/.config/nvim  ]; then
+        echo "Vim files already exist. Please backup or remove .(n)vim and .(n)vimrc and .config/nvim"
+        exit 1
+    fi
+
+    # Get current directory for future use in links
+    VIM_SYNC_DIR=$(dirname $0)
+    cd $VIM_SYNC_DIR
+    VIM_SYNC_DIR=$(pwd)
+
+
+    # Vim
+    ln -s $VIM_SYNC_DIR/vim/init.vim ~/.vimrc
+    ln -s $VIM_SYNC_DIR/vim ~/.vim
+
+    # Neovim legacy
+    ln -s $VIM_SYNC_DIR/vim/init.vim ~/.nvimrc
+    ln -s $VIM_SYNC_DIR/vim ~/.nvim
+
+    # Neovim new
+    mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+    ln -s $VIM_SYNC_DIR/vim $XDG_CONFIG_HOME/nvim
+
+    # Install all bundles
+    echo "Install all bundles"
+    vim +PlugInstall +qall
+    if hash nvim 2>/dev/null; then
+        nvim +PlugInstall +qall
+    fi
+}
+ 
 setup_other_softlinks(){
     files=".bash_profile .gitconfig .bashrc .tmux.conf .inputrc"
     printf "Making soft links to $files and .vim and .vimrc \n"
@@ -39,17 +48,7 @@ setup_other_softlinks(){
 }
 
  
-printf """
-Eliot's Vimrc
-@author: Ammar Khaku (akhaku)
-Requires Vim7
- 
-"""
-move_old_vim_files
-setup_vim_softlinks
+setup_vim
 setup_other_softlinks
-git submodule init
-git submodule update
 
-cd .vim/bundle/vimproc.vim && make
-
+#cd .vim/bundle/vimproc.vim && make
