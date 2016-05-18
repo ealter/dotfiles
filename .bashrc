@@ -2,7 +2,12 @@ alias rm='rm -I'
 alias mv='mv -i'
 alias cp='cp -i'
 alias l='ls'
-alias delete_merged_local_branches='git branch -d $(git branch --merged | grep -v "^\*")'
+alias delete_merged_local_branches='git branch -d $(git branch --merged | grep -v "^\*" | grep -v master)'
+alias gg='git grep'
+
+gbranch() {
+    git fetch origin && git checkout origin/master -b "$1"
+}
 
 export PATH=$HOME/bin:$PATH
 export HISTCONTROL=ignorespace:ignoredups

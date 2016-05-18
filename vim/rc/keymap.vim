@@ -44,7 +44,7 @@ inoremap <leader><Tab> <C-V><Tab>
 nnoremap <silent> <leader>ls :new<CR>:r!ls<CR>
 
 " Remove trailing whitespace when saving
-autocmd BufWritePre *.{py,js,yaml} :%s/\s\+$//e
+autocmd BufWritePre *.{py,js,yaml,tmpl} :%s/\s\+$//e
 
 "Makes splits easier (since s is pretty useless anyway)
 nnoremap s <C-W>
