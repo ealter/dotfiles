@@ -37,3 +37,5 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'airblade/vim-rooter'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'FooSoft/vim-argwrap'
+Plug 'michaeljsmith/vim-indent-object'

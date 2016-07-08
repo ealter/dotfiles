@@ -51,3 +51,5 @@ nnoremap s <C-W>
 
 "cd to the current directory and then print where you are
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+nnoremap <silent> <leader>r :ArgWrap<CR>
