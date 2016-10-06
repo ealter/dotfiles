@@ -33,7 +33,7 @@ setup_vim(){
 }
  
 setup_other_softlinks(){
-    files=".bash_profile .gitconfig .bashrc .tmux.conf .inputrc"
+    files=".bash_profile .gitconfig .bashrc .tmux.conf .inputrc .gitignore_global"
     printf "Making soft links to $files and .vim and .vimrc \n"
     current_dir=`pwd`
     for file in $files; do
