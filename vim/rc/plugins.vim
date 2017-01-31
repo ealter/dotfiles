@@ -27,7 +27,10 @@ if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-if (has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))
+if has('python3') && has('nvim')
+    Plug 'Shougo/deoplete.nvim'
+    call s:smart_source_rc('plugins/deoplete')
+elseif (has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))
     Plug 'Shougo/neocomplete.vim'
     call s:smart_source_rc('plugins/neocomplete')
 end
