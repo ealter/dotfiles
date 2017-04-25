@@ -39,3 +39,4 @@ Plug 'airblade/vim-rooter'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'FooSoft/vim-argwrap'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'rust-lang/rust.vim'
