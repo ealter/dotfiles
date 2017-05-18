@@ -1,7 +1,7 @@
 alias mv='mv -i'
 alias cp='cp -i'
 alias l='ls'
-alias ls='ls -G'
+alias ls='ls -G --color'
 alias delete_merged_local_branches='git branch -d $(git branch --merged | grep -v "^\*" | grep -v master)'
 alias gg='git grep --line-number'
 
