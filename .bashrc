@@ -5,6 +5,8 @@ alias ls='ls -G --color'
 alias delete_merged_local_branches='git branch -d $(git branch --merged | grep -v "^\*" | grep -v master)'
 alias gg='git grep --line-number'
 
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
 gv() {
     # Open the search files in vim
     vim $(git grep -l "$@")
