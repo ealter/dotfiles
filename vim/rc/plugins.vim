@@ -13,7 +13,7 @@ endfunction
 " }} Functions
 
 "cd into the project root directory
-map <silent> <unique> <leader>pr <Plug>RooterChangeToRootDirectory
+map <silent> <unique> <leader>pr <Plug>Rooter
 let g:rooter_manual_only = 1
 
 Plug 'tpope/vim-fugitive'
