@@ -9,7 +9,6 @@ gbranch() {
     git fetch origin && git checkout origin/master -b "$1"
 }
 
-export PATH=$HOME/bin:$PATH
 export HISTCONTROL=ignorespace:ignoredups
 export HISTIGNORE='fg:mm'
 export HISTSIZE=50000
@@ -24,3 +23,6 @@ set -o vi
 if [ -f ~/.bashrc_local ]; then
     . ~/.bashrc_local
 fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/bin:$HOME/.rvm/bin:$HOME/.cargo/bin"
