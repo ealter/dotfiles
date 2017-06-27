@@ -33,7 +33,7 @@ setup_vim(){
 }
  
 setup_other_softlinks(){
-    files=".bash_profile .gitconfig .bashrc .tmux.conf .inputrc .gitignore_global"
+    files=".bash_profile .gitconfig .bashrc .tmux.conf .inputrc .gitignore_global .pdbrc .pythonrc.py"
     printf "Making soft links to $files and .vim and .vimrc \n"
     current_dir=`pwd`
     for file in $files; do
@@ -47,8 +47,13 @@ setup_other_softlinks(){
     printf "Done.\n\n"
 }
 
+setup_neovim_virtualenv(){
+    virtualenv --python=python3.5 neovim_virtualenv
+    neovim_virtualenv/bin/pip install neovim flake8
+}
  
 setup_vim
 setup_other_softlinks
+setup_neovim_virtualenv
 
 #cd .vim/bundle/vimproc.vim && make
