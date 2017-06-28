@@ -1,7 +1,7 @@
 alias mv='mv -i'
 alias cp='cp -i'
 alias l='ls'
-alias ls='ls -G --color'
+alias ls='ls -G'
 alias delete_merged_local_branches='git branch -d $(git branch --merged | grep -v "^\*" | grep -v master)'
 alias gg='git grep --line-number'
 
@@ -11,7 +11,16 @@ gv() {
 }
 
 gbranch() {
-    git fetch origin && git checkout origin/master -b "$1"
+    git fetch origin
+
+    if git rev-parse --verify origin/dev 2&>1 > /dev/null; then
+        # Yelp wifi sometimes uses dev and sometimes uses master. This runs if origin/dev exists.
+        remote=origin/dev
+    else
+        remote=origin/master
+    fi
+
+    git checkout $remote -b "$1"
 }
 
 export HISTCONTROL=ignorespace:ignoredups
