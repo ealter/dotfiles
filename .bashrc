@@ -1,7 +1,13 @@
 alias mv='mv -i'
 alias cp='cp -i'
 alias l='ls'
-alias ls='ls -G'
+# On linux, --color exists, but on macs it does not
+if ls --color 2&>1 > /dev/null; then
+    alias ls='ls --color'
+else
+    alias ls='ls -G'
+fi
+
 alias delete_merged_local_branches='git branch -d $(git branch --merged | grep -v "^\*" | grep -v master)'
 alias gg='git grep --line-number'
 
