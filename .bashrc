@@ -2,7 +2,7 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias l='ls'
 # On linux, --color exists, but on macs it does not
-if ls --color 2>&1 > /dev/null; then
+if ls --color > /dev/null 2>&1; then
     alias ls='ls --color'
 else
     alias ls='ls -G'
@@ -19,7 +19,7 @@ gv() {
 gbranch() {
     git fetch origin
 
-    if git rev-parse --verify origin/dev 2>&1 > /dev/null; then
+    if git rev-parse --verify origin/dev > /dev/null 2>&1; then
         # Yelp wifi sometimes uses dev and sometimes uses master. This runs if origin/dev exists.
         remote=origin/dev
     else
