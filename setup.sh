@@ -3,7 +3,7 @@
 setup_vim(){
     if [ -d ~/.vim  ] || [ -f ~/.vimrc ] || [ -d ~/.nvim  ] || [ -f ~/.nvimrc ] || [ -d ~/.config/nvim  ]; then
         echo "Vim files already exist. Please backup or remove .(n)vim and .(n)vimrc and .config/nvim"
-        exit 1
+        return
     fi
 
     # Get current directory for future use in links
