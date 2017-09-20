@@ -46,5 +46,4 @@ set complete-=i
 
 autocmd BufNewFile,BufRead *.elm setf elm
 
-"let g:python3_host_prog = '~/dotfiles/neovim_virtualenv/bin/python'
-let g:python3_host_prog = $HOME."/dotfiles/neovim_virtualenv/bin/python"
+let g:python3_host_prog = $HOME."/.vim/virtualenv/bin/python"

@@ -6,3 +6,5 @@
 /plugged/*
 /rc/*.local.rc.vim
 /rc/plugins/*.local.rc.vim
+
+/virtualenv

@@ -48,8 +48,10 @@ setup_other_softlinks(){
 }
 
 setup_neovim_virtualenv(){
-    virtualenv --python=python3.5 neovim_virtualenv
-    neovim_virtualenv/bin/pip install neovim flake8
+    cd vim
+    virtualenv --python=python3.6 virtualenv
+    virtualenv/bin/pip install neovim flake8
+    cd -
 }
  
 setup_vim
