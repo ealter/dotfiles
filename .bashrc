@@ -18,15 +18,7 @@ gv() {
 
 gbranch() {
     git fetch origin
-
-    if git rev-parse --verify origin/dev > /dev/null 2>&1; then
-        # Yelp wifi sometimes uses dev and sometimes uses master. This runs if origin/dev exists.
-        remote=origin/dev
-    else
-        remote=origin/master
-    fi
-
-    git checkout $remote -b "$1"
+    git checkout origin/master -b "$1"
 }
 
 export HISTCONTROL=ignorespace:ignoredups
@@ -40,10 +32,12 @@ fi
 set -o vi
 export PYTHONSTARTUP=~/.pythonrc.py
 
+source ~/dotfiles/git_completion.bash
+
 #Put stuff in .bashrc_local that varies based on particular machines
 if [ -f ~/.bashrc_local ]; then
     . ~/.bashrc_local
 fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/bin:$HOME/.rvm/bin:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/bin:$HOME/.rvm/bin:$HOME/.cargo/bin:./node_modules/.bin"
