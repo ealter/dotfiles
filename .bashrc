@@ -3,7 +3,7 @@ alias cp='cp -i'
 alias l='ls'
 # On linux, --color exists, but on macs it does not
 if ls --color > /dev/null 2>&1; then
-    alias ls='ls --color'
+    alias ls='ls --color=auto'
 else
     alias ls='ls -G'
 fi
