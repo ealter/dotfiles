@@ -39,7 +39,8 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'altercation/vim-colors-solarized'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'airblade/vim-rooter'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'FooSoft/vim-argwrap'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'rust-lang/rust.vim'
+Plug 'airblade/vim-gitgutter'
+set updatetime=250
