@@ -10,6 +10,7 @@ fi
 
 alias delete_merged_local_branches='git branch -d $(git branch --merged | grep -v "^\*" | grep -v master)'
 alias gg='git grep --line-number'
+alias apush='git commit -a --amend --no-edit && git push -f origin HEAD'
 
 # Prefer neovim if it is installed
 if hash nvim 2>/dev/null; then
@@ -26,6 +27,25 @@ gbranch() {
     git checkout origin/master -b "$1"
 }
 
+remove_python_imports() {
+    files=$(git diff HEAD --name-only | grep '\.py$')
+
+    if [ -z "$files" ]; then
+        exit 0
+    fi
+
+    for file in $files; do
+        flake8_output=$(flake8 "$file" | grep 'imported but unused')
+        if [ ! -z "$flake8_output" ]; then
+            sed -i $(echo "$flake8_output" | cut -d: -f2 | xargs -n1 -I {} echo {}d | tr '\n' ';') "$file"
+        fi
+    done
+}
+
+run_in_docker() {
+    docker run --init --workdir /foo --volume "$(pwd):/foo/" busybox $@
+}
+
 export HISTCONTROL=ignorespace:ignoredups
 export HISTIGNORE='fg:mm'
 export HISTSIZE=50000
@@ -36,6 +56,7 @@ fi
 
 set -o vi
 export PYTHONSTARTUP=~/.pythonrc.py
+alias fix_ssh_auth='export $(tmux show-environment | grep \^SSH_AUTH_SOCK=)'
 
 source ~/dotfiles/git_completion.bash
 

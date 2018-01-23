@@ -57,5 +57,3 @@ setup_neovim_virtualenv(){
 setup_vim
 setup_other_softlinks
 setup_neovim_virtualenv
-
-#cd .vim/bundle/vimproc.vim && make
