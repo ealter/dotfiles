@@ -46,6 +46,15 @@ run_in_docker() {
     docker run --init --workdir /foo --volume "$(pwd):/foo/" busybox $@
 }
 
+merge_master() {
+    branch="$(git rev-parse --abbrev-ref HEAD)"
+    git checkout master && git pull && git merge --no-ff "$branch" && git push origin HEAD
+
+    if git config "branch.$branch.reviewnumber" > /dev/null; then
+        review-branch --submit "$branch"
+    fi
+}
+
 export HISTCONTROL=ignorespace:ignoredups
 export HISTIGNORE='fg:mm'
 export HISTSIZE=50000
