@@ -12,13 +12,26 @@ function! s:source_rc(path)
 endfunction
 " }} Functions
 
+
+Plug 'tpope/vim-fugitive'  " Git integration
+Plug 'vim-scripts/matchit.zip'  " Match complex things with '%'
+Plug 'altercation/vim-colors-solarized'  " Color scheme
+Plug 'jelera/vim-javascript-syntax'  " Moar js syntax highlighting
+Plug 'airblade/vim-rooter'  " Change directory to the project root
+Plug 'FooSoft/vim-argwrap'  " Format functions between multiline and single line
+Plug 'michaeljsmith/vim-indent-object'  " Add a text object based on the indent level (ai, ii, aI)
+Plug 'rust-lang/rust.vim'  " Rust syntax highlighting
+Plug 'airblade/vim-gitgutter'  " Adds + and - to the gutter depending on which lines have been changed in git
+Plug 'tpope/vim-commentary'  " gc to comment or uncomment a block of code
+Plug 'tpope/vim-surround'  " Makes it easy to edit html tags and surround text with tags
+
+" Plugins I'm not currently using, but might reenable
+" Plug 'ctrlpvim/ctrlp.vim'  " Fuzzy file search
+
 "cd into the project root directory
 noremap <silent> <leader>pr :Rooter<CR>
 let g:rooter_manual_only = 1
 
-Plug 'tpope/vim-fugitive'
-
-Plug 'ctrlpvim/ctrlp.vim'
 call s:smart_source_rc('plugins/ctrlp')
 
 if executable('ag')
@@ -35,12 +48,4 @@ elseif (has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))
     call s:smart_source_rc('plugins/neocomplete')
 end
 
-Plug 'vim-scripts/matchit.zip'
-Plug 'altercation/vim-colors-solarized'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'airblade/vim-rooter'
-Plug 'FooSoft/vim-argwrap'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'rust-lang/rust.vim'
-Plug 'airblade/vim-gitgutter'
 set updatetime=250

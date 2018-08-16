@@ -46,14 +46,22 @@ run_in_docker() {
     docker run --init --workdir /foo --volume "$(pwd):/foo/" busybox $@
 }
 
-merge_master() {
+merge_master() {(
+    set -e
     branch="$(git rev-parse --abbrev-ref HEAD)"
-    git checkout master && git pull && git merge --no-ff "$branch" && git push origin HEAD
+    reviewnumber=$(git config "branch.$branch.reviewnumber")
+    git checkout master
+    git pull
+    #if [[ ! -z "$reviewnumber" ]]; then
+    #    git merge --no-ff "$branch" -m "https://reviewboard.yelpcorp.com/r/${reviewnumber}"
+    #fi
+    git merge --no-ff "$branch" --no-edit
+    git push origin HEAD
 
-    if git config "branch.$branch.reviewnumber" > /dev/null; then
+    if [[ ! -z "$reviewnumber" ]]; then
         review-branch --submit "$branch"
     fi
-}
+)}
 
 export HISTCONTROL=ignorespace:ignoredups
 export HISTIGNORE='fg:mm'
@@ -75,4 +83,4 @@ if [ -f ~/.bashrc_local ]; then
 fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/bin:$HOME/.rvm/bin:$HOME/.cargo/bin:./node_modules/.bin"
+export PATH="$PATH:$HOME/bin:$HOME/.rvm/bin:$HOME/.cargo/bin"
