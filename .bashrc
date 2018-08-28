@@ -75,7 +75,9 @@ set -o vi
 export PYTHONSTARTUP=~/.pythonrc.py
 alias fix_ssh_auth='export $(tmux show-environment | grep \^SSH_AUTH_SOCK=)'
 
-source ~/dotfiles/git_completion.bash
+if [ -f ~/dotfiles/git_completion.bash ]; then
+    . ~/dotfiles/git_completion.bash
+fi
 
 #Put stuff in .bashrc_local that varies based on particular machines
 if [ -f ~/.bashrc_local ]; then

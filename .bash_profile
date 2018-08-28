@@ -2,4 +2,4 @@
 
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-eval "$(aactivator init)"
+hash aactivator 2>/dev/null && eval "$(aactivator init)"
