@@ -49,7 +49,7 @@ run_in_docker() {
 merge_master() {(
     set -e
     branch="$(git rev-parse --abbrev-ref HEAD)"
-    reviewnumber=$(git config "branch.$branch.reviewnumber")
+    reviewnumber="$(git config 'branch.$branch.reviewnumber')" || true
     git checkout master
     git pull
     #if [[ ! -z "$reviewnumber" ]]; then
