@@ -6,5 +6,6 @@
 [alias]
 	last = log -l HEAD
 	com = commit -am
+	amd = commit -a --amend --no-edit
 [push]
 	default = simple
