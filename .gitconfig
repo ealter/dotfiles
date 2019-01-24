@@ -1,11 +1,12 @@
 [user]
-	email = Eliot.Alter@gmail.com
-	name = Eliot Alter
+    email = Eliot.Alter@gmail.com
+    name = Eliot Alter
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [alias]
-	last = log -l HEAD
-	com = commit -am
-	amd = commit -a --amend --no-edit
+    last = log -l HEAD
+    com = commit -am
+    amd = commit -a --amend --no-edit
+    lol = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold yellow)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s - %C(bold blue)%an%C(reset)%C(bold red)%d%C(reset)' --all
 [push]
-	default = simple
+    default = simple
