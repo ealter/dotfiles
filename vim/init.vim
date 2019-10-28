@@ -29,7 +29,6 @@ call s:smart_source_rc('plugins')
 call plug#end()
 call s:smart_source_rc('edit')
 call s:smart_source_rc('ui')
-call s:smart_source_rc('yelp')
 
 " ******* BEGIN FIX AUTOREAD *******
 " https://github.com/neovim/neovim/issues/2127

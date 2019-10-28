@@ -52,15 +52,8 @@ merge_master() {(
     reviewnumber=$(git config "branch.$branch.reviewnumber") || true
     git checkout master
     git pull
-    #if [[ ! -z "$reviewnumber" ]]; then
-    #    git merge --no-ff "$branch" -m "https://reviewboard.yelpcorp.com/r/${reviewnumber}"
-    #fi
     git merge --no-ff "$branch" --no-edit
     git push origin HEAD
-
-    if [[ ! -z "$reviewnumber" ]]; then
-        review-branch --submit "$branch"
-    fi
 )}
 
 export HISTCONTROL=ignorespace:ignoredups
