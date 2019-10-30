@@ -11,6 +11,7 @@ fi
 alias delete_merged_local_branches='git branch -d $(git branch --merged | grep -v "^\*" | grep -v master)'
 alias gg='git grep --line-number'
 alias apush='git commit -a --amend --no-edit && git push -f origin HEAD'
+alias groot='cd "$(git rev-parse --show-toplevel)"'
 
 # Prefer neovim if it is installed
 if hash nvim 2>/dev/null; then
