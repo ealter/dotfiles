@@ -8,3 +8,6 @@ vim/rc/*.local.rc.vim
 vim/rc/plugins/*.local.rc.vim
 vim/virtualenv
 vim/.netrwhist
+
+/git-completion.bash
+/git-prompt.sh

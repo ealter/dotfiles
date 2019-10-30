@@ -53,7 +53,17 @@ setup_neovim_virtualenv(){
     virtualenv/bin/pip install neovim flake8
     cd -
 }
+
+setup_vendored_files(){
+    if [ ! -f git-completion.bash ]; then
+        wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+    fi
+    if [ ! -f git-prompt.sh ]; then
+        wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+    fi
+}
  
 setup_vim
 setup_other_softlinks
+setup_vendored_files
 setup_neovim_virtualenv
