@@ -20,10 +20,15 @@ Plug 'jelera/vim-javascript-syntax'  " Moar js syntax highlighting
 Plug 'airblade/vim-rooter'  " Change directory to the project root
 Plug 'FooSoft/vim-argwrap'  " Format functions between multiline and single line
 Plug 'michaeljsmith/vim-indent-object'  " Add a text object based on the indent level (ai, ii, aI)
-Plug 'rust-lang/rust.vim'  " Rust syntax highlighting
+" Plug 'rust-lang/rust.vim'  " Rust syntax highlighting
 Plug 'airblade/vim-gitgutter'  " Adds + and - to the gutter depending on which lines have been changed in git
 Plug 'tpope/vim-commentary'  " gc to comment or uncomment a block of code
 Plug 'tpope/vim-surround'  " Makes it easy to edit html tags and surround text with tags
+
+" vim-go doesn't support vim versions before 8.0.1
+if has('nvim') || v:version >= 801
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+endif
 
 " Plugins I'm not currently using, but might reenable
 " Plug 'ctrlpvim/ctrlp.vim'  " Fuzzy file search
