@@ -53,3 +53,6 @@ nnoremap s <C-W>
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 nnoremap <silent> <leader>r :ArgWrap<CR>
+
+"Replace the current word with the first spelling suggestion
+nnoremap z- z=1<CR><CR>
