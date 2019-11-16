@@ -30,6 +30,12 @@ if has('nvim') || v:version >= 801
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 endif
 
+if executable('yarn')
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+else
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+endif
+
 " Plugins I'm not currently using, but might reenable
 " Plug 'ctrlpvim/ctrlp.vim'  " Fuzzy file search
 
