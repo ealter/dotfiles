@@ -24,6 +24,7 @@ Plug 'michaeljsmith/vim-indent-object'  " Add a text object based on the indent 
 Plug 'airblade/vim-gitgutter'  " Adds + and - to the gutter depending on which lines have been changed in git
 Plug 'tpope/vim-commentary'  " gc to comment or uncomment a block of code
 Plug 'tpope/vim-surround'  " Makes it easy to edit html tags and surround text with tags
+Plug 'tpope/vim-vinegar'  " Better netrw file browsing
 
 " vim-go doesn't support vim versions before 8.0.1
 if has('nvim') || v:version >= 801
