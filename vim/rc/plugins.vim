@@ -28,7 +28,20 @@ Plug 'tpope/vim-vinegar'  " Better netrw file browsing
 
 " vim-go doesn't support vim versions before 8.0.1
 if has('nvim') || v:version >= 801
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    augroup Golang
+        Plug 'fatih/vim-go'
+
+        let g:go_highlight_functions = 1
+        let g:go_highlight_methods = 1
+        let g:go_highlight_fields = 1
+        let g:go_highlight_types = 1
+        let g:go_highlight_operators = 1
+        let g:go_highlight_build_constraints = 1
+        let g:go_highlight_extra_types = 1
+        let g:go_highlight_string_spellcheck = 1
+        let g:go_fmt_command = "goimports"
+        let g:go_addtags_transform = "snakecase"
+    augroup END
 endif
 
 if executable('yarn')
@@ -52,7 +65,25 @@ if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-if has('python3') && has('nvim')
+if executable('gopls')
+    " Installation: go get golang.org/x/tools/gopls
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    augroup ALE
+      Plug 'w0rp/ale'
+      let g:ale_ruby_rubocop_executable = 'scripts/bin/rubocop'
+      let g:ale_fix_on_save = 1
+      let g:ale_lint_on_save = 1
+      let g:ale_linters = {
+        \'javascript': ['prettier', 'eslint'],
+        \'javascript.jsx': ['prettier', 'eslint'],
+      \}
+      let g:ale_fixers = {
+        \'javascript': ['prettier', 'eslint'],
+        \'javascript.jsx': ['prettier', 'eslint'],
+        \'ruby': ['rubocop'],
+      \}
+    augroup END
+elseif has('python3') && has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     let g:deoplete#enable_at_startup = 1
 elseif (has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))

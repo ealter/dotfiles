@@ -83,5 +83,5 @@ if [ -f ~/.bashrc_local ]; then
     . ~/.bashrc_local
 fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/bin:$HOME/.rvm/bin:$HOME/.cargo/bin"
+# Add RVM and golang to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/bin:$HOME/.rvm/bin:$HOME/.cargo/bin:$HOME/go/bin"
