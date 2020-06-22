@@ -33,7 +33,7 @@ setup_vim(){
 }
  
 setup_other_softlinks(){
-    files=".bash_profile .gitconfig .bashrc .tmux.conf .inputrc .gitignore_global .pdbrc .pythonrc.py"
+    files=".bash_profile .gitconfig .bashrc .zshrc .tmux.conf .inputrc .gitignore_global .pdbrc .pythonrc.py"
     printf "Making soft links to $files and .vim and .vimrc \n"
     current_dir=`pwd`
     for file in $files; do
@@ -60,6 +60,10 @@ setup_vendored_files(){
     fi
     if [ ! -f git-prompt.sh ]; then
         wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+    fi
+
+    if [ ! -f "${HOME}/.zgen" ]; then
+        git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
     fi
 }
  

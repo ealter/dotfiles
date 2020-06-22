@@ -57,10 +57,6 @@ merge_master() {(
     git push origin HEAD
 )}
 
-export HISTCONTROL=ignorespace:ignoredups
-export HISTIGNORE='fg:mm'
-export HISTSIZE=50000
-
 if [ -z "$SSH_AUTH_SOCK" ]; then
     export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 fi
@@ -69,13 +65,22 @@ set -o vi
 export PYTHONSTARTUP=~/.pythonrc.py
 alias fix_ssh_auth='export $(tmux show-environment | grep \^SSH_AUTH_SOCK=)'
 
-if [ -f ~/dotfiles/git-completion.bash ]; then
-    . ~/dotfiles/git-completion.bash
-fi
+if test -n "$BASH_VERSION"; then
+    export HISTCONTROL=ignorespace:ignoredups
+    export HISTIGNORE='fg'
+    export HISTSIZE=50000
 
-if [ -f ~/dotfiles/git-prompt.sh ]; then
-    . ~/dotfiles/git-prompt.sh
-    PS1='\h:\W$(__git_ps1 " (%s)")\$ '
+    if [ -f ~/dotfiles/git-completion.bash ]; then
+        . ~/dotfiles/git-completion.bash
+    fi
+
+    if [ -f ~/dotfiles/git-prompt.sh ]; then
+        . ~/dotfiles/git-prompt.sh
+        PS1='\h:\W$(__git_ps1 " (%s)")\$ '
+    fi
+elif test -n "$ZSH_VERSION"; then
+    setopt HIST_IGNORE_SPACE
+    export HISTORY_IGNORE='(fg)'
 fi
 
 #Put stuff in .bashrc_local that varies based on particular machines
