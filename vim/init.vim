@@ -134,6 +134,7 @@ nnoremap z- z=1<CR><CR>
 call plug#begin()
 
 Plug 'tpope/vim-fugitive'  " Git integration
+Plug 'tpope/vim-rhubarb'  " Github integration
 Plug 'vim-scripts/matchit.zip'  " Match complex things with '%'
 Plug 'altercation/vim-colors-solarized'  " Color scheme
 Plug 'jelera/vim-javascript-syntax'  " Moar js syntax highlighting
@@ -239,6 +240,21 @@ endif
 set background=dark
 let g:solarized_termtrans = 1
 colorscheme solarized
+
+" ----- Stripe specific settings -----
+if isdirectory("/Users/eliot/stripe")
+    let g:github_enterprise_urls = ['https://git.corp.stripe.com']
+    " Copy github URL to clipboard
+    nnoremap <Leader>gh :.Gbrowse!<CR>
+    " Open github URL in browser
+    nnoremap <Leader>ghv :Gbrowse<CR>
+    " Open github URL in browser at current line
+    nnoremap <Leader>gho :.Gbrowse<CR>
+
+    " Same shortcuts but for visual mode
+    vnoremap <Leader>gh :%Gbrowse!<CR>
+    vnoremap <Leader>gho :%Gbrowse<CR>
+endif
 
 " ******* BEGIN FIX AUTOREAD *******
 " https://github.com/neovim/neovim/issues/2127
