@@ -147,6 +147,7 @@ Plug 'tpope/vim-commentary'  " gc to comment or uncomment a block of code
 Plug 'tpope/vim-surround'  " Makes it easy to edit html tags and surround text with tags
 Plug 'tpope/vim-vinegar'  " Better netrw file browsing
 Plug 'maxmellon/vim-jsx-pretty' " Format jsx
+Plug 'leafgarland/typescript-vim' " Typescript syntax highlighting
 
 " vim-go doesn't support vim versions before 8.0.1
 if has('nvim') || v:version >= 801

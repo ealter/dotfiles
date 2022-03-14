@@ -20,7 +20,11 @@ fi
 
 gv() {
     # Open the search files in vim
-    vim $(git grep -l "$@")
+    if command -v rg &> /dev/null; then
+        vim $(rg -l "$@")
+    else
+        vim $(git grep -l "$@")
+    fi
 }
 
 gbranch() {
