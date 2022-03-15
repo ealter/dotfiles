@@ -188,10 +188,12 @@ if executable('gopls')
       let g:ale_linters = {
         \'javascript': ['prettier', 'eslint'],
         \'javascript.jsx': ['prettier', 'eslint'],
+        \'typescriptreact': ['prettier', 'eslint'],
       \}
       let g:ale_fixers = {
         \'javascript': ['prettier', 'eslint'],
         \'javascript.jsx': ['prettier', 'eslint'],
+        \'typescriptreact': ['prettier', 'eslint'],
         \'ruby': ['rubocop'],
       \}
     augroup END
