@@ -244,19 +244,22 @@ set background=dark
 let g:solarized_termtrans = 1
 colorscheme solarized
 
+" Fix solarized's interactions with vim-gitgutter
+highlight clear SignColumn
+
 " ----- Stripe specific settings -----
 if isdirectory("/Users/eliot/stripe")
     let g:github_enterprise_urls = ['https://git.corp.stripe.com']
     " Copy github URL to clipboard
-    nnoremap <Leader>gh :.Gbrowse!<CR>
+    nnoremap <Leader>gh :.GBrowse!<CR>
     " Open github URL in browser
-    nnoremap <Leader>ghv :Gbrowse<CR>
+    nnoremap <Leader>ghv :GBrowse<CR>
     " Open github URL in browser at current line
-    nnoremap <Leader>gho :.Gbrowse<CR>
+    nnoremap <Leader>gho :.GBrowse<CR>
 
     " Same shortcuts but for visual mode
-    vnoremap <Leader>gh :%Gbrowse!<CR>
-    vnoremap <Leader>gho :%Gbrowse<CR>
+    vnoremap <Leader>gh :%GBrowse!<CR>
+    vnoremap <Leader>gho :%GBrowse<CR>
 endif
 
 " ******* BEGIN FIX AUTOREAD *******

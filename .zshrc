@@ -41,7 +41,9 @@ export RPROMPT=''
 
 source ~/.bash_profile
 source ~/.bashrc
+
 eval "$(nodenv init -)"
+compdef _git stripe-git=git
 bindkey -M vicmd v edit-command-line
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
