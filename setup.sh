@@ -49,7 +49,7 @@ setup_other_softlinks(){
 
 setup_neovim_virtualenv(){
     cd vim
-    virtualenv --python=python3 virtualenv
+    python3 -m virtualenv --python=python3 virtualenv
     virtualenv/bin/pip install pynvim flake8
     cd -
 }
