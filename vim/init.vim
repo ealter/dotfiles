@@ -148,6 +148,8 @@ Plug 'tpope/vim-surround'  " Makes it easy to edit html tags and surround text w
 Plug 'tpope/vim-vinegar'  " Better netrw file browsing
 Plug 'maxmellon/vim-jsx-pretty' " Format jsx
 Plug 'leafgarland/typescript-vim' " Typescript syntax highlighting
+Plug 'rodjek/vim-puppet' " Puppet syntax and formatting
+Plug 'hashivim/vim-terraform'  " Terraform syntax
 
 " vim-go doesn't support vim versions before 8.0.1
 if has('nvim') || v:version >= 801

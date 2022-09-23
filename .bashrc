@@ -21,7 +21,7 @@ fi
 gv() {
     # Open the search files in vim
     if command -v rg &> /dev/null; then
-        vim $(rg -l "$@")
+        vim $(rg -l "$@" | sort)
     else
         vim $(git grep -l "$@")
     fi
