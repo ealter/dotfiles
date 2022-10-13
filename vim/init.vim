@@ -179,47 +179,27 @@ endif
 noremap <silent> <leader>pr :Rooter<CR>
 let g:rooter_manual_only = 1
 
-if executable('gopls')
-    " Installation: go get golang.org/x/tools/gopls
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    augroup ALE
-      Plug 'w0rp/ale'
-      let g:ale_ruby_rubocop_executable = 'scripts/bin/rubocop'
-      let g:ale_fix_on_save = 1
-      let g:ale_lint_on_save = 1
-      let g:ale_linters = {
-        \'javascript': ['prettier', 'eslint'],
-        \'javascript.jsx': ['prettier', 'eslint'],
-        \'typescriptreact': ['prettier', 'eslint'],
-      \}
-      let g:ale_fixers = {
-        \'javascript': ['prettier', 'eslint'],
-        \'javascript.jsx': ['prettier', 'eslint'],
-        \'typescriptreact': ['prettier', 'eslint'],
-        \'ruby': ['rubocop'],
-      \}
-    augroup END
-elseif has('python3') && has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    let g:deoplete#enable_at_startup = 1
-elseif (has('lua') && (v:version > 703 || v:version == 703 && has('patch885')))
-    Plug 'Shougo/neocomplete.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+augroup ALE
+  Plug 'w0rp/ale'
+  let g:ale_ruby_rubocop_executable = 'scripts/bin/rubocop'
+  let g:ale_fix_on_save = 1
+  let g:ale_lint_on_save = 1
+  let g:ale_linters = {
+    \'javascript': ['prettier', 'eslint'],
+    \'javascript.jsx': ['prettier', 'eslint'],
+    \'typescriptreact': ['prettier', 'eslint'],
+  \}
+  let g:ale_fixers = {
+    \'javascript': ['prettier', 'eslint'],
+    \'javascript.jsx': ['prettier', 'eslint'],
+    \'typescriptreact': ['prettier', 'eslint'],
+    \'ruby': ['rubocop'],
+  \}
+augroup END
 
-    let g:acp_enableAtStartup = 0
-    let g:neocomplete#enable_at_startup = 1
-    let g:neocomplete#enable_smart_case = 1
-    let g:neocomplete#sources#syntax#min_keyword_length = 3
-    let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-    let g:neocomplete#enable_prefetch = 1
-
-    if !exists('g:neocomplete#sources#omni#input_patterns')
-        let g:neocomplete#sources#omni#input_patterns = {}
-    endif
-    let g:neocomplete#sources#omni#input_patterns.python = ''
-    let g:neocomplete#sources#omni#input_patterns.ruby = ''
-
-    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-end
+" Tab completion from pressing tab
+inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 set updatetime=250
 
