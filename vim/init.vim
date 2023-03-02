@@ -199,7 +199,7 @@ augroup ALE
 augroup END
 
 " Tab completion from pressing tab
-inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
 
 set updatetime=250
 
@@ -228,6 +228,14 @@ colorscheme solarized
 
 " Fix solarized's interactions with vim-gitgutter
 highlight clear SignColumn
+
+" Get copy-paste to work as expected on Macs
+if has('mac')
+  vnoremap <D-x> "+x
+  vnoremap <D-c> "+y
+  vnoremap <D-v> "+p
+  nnoremap <D-v> "+p
+endif
 
 " ----- Stripe specific settings -----
 if isdirectory("/Users/eliot/stripe")
