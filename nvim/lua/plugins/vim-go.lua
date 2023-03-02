@@ -1,0 +1,10 @@
+vim.go.go_highlight_functions = 1
+vim.go.go_highlight_methods = 1
+vim.go.go_highlight_fields = 1
+vim.go.go_highlight_types = 1
+vim.go.go_highlight_operators = 1
+vim.go.go_highlight_build_constraints = 1
+vim.go.go_highlight_extra_types = 1
+vim.go.go_highlight_string_spellcheck = 1
+vim.go.go_fmt_command = "goimports"
+vim.go.go_addtags_transform = "snakecase"

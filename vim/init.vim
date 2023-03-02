@@ -57,8 +57,6 @@ filetype indent plugin on
 set completeopt=menuone,longest,preview
 set complete-=i
 
-autocmd BufNewFile,BufRead *.elm setf elm
-
 let g:python3_host_prog = $HOME."/.vim/virtualenv/bin/python"
 
 set autoread  " Auto reload files when there's no conflict
