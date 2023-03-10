@@ -27,6 +27,10 @@ return require('packer').startup(function(use)
   use 'tpope/vim-vinegar'  -- Better netrw file browsing
   use 'vim-scripts/matchit.zip'  -- Match complex things with '%'
 
+  -- Fuzzy finder
+  use 'ibhagwan/fzf-lua'
+  -- use 'vijaymarupudi/nvim-fzf'
+
   -- autocomplete
   -- use {'neoclide/coc.nvim', branch = 'release'}
   -- use 'w0rp/ale'
