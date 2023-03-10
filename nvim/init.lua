@@ -41,7 +41,6 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 
 vim.g.mapleader = ','
-
 -- remap kj to escape insert mode (since you'll probably never type this)
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', {noremap = true})
 
@@ -77,7 +76,7 @@ vim.api.nvim_set_keymap('n', 's', '<C-W>', {noremap = true})
 -- cd to the current directory and then print where you are
 vim.api.nvim_set_keymap('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', {noremap = true})
 
-vim.api.nvim_set_keymap('n', '<leader>r', ':ArgWrap', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>r', ':ArgWrap<CR>', {noremap = true})
 
 -- Replace the current word with the first spelling suggestion
 vim.api.nvim_set_keymap('n', 'z-', 'z=1<CR><CR>', {noremap = true})
@@ -87,3 +86,4 @@ vim.o.gdefault = true
 
 require('plug_init')
 require('plugins')
+-- require('lsp')
