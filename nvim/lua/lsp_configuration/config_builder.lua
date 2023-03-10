@@ -28,26 +28,34 @@ local on_attach = function(client, bufnr)
 
   signature.on_attach(lsp_signature_config)
 
-  -- helper function that lets us more easily define mappings
-  local nmap = function(keys, func, desc)
-    vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
-    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', keys, func, { noremap=true, silent=true } )
-  end
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
 
-  -- nmap("<leader>r", vim.lsp.buf.rename, "[R]ename")
-  nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-  nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-  nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-  nmap("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
-  nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-  nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
-  nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-  nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
-  nmap("=", function()
-    vim.lsp.buf.format({
-      async = true,
-    })
-  end, "Format buffer")
+  local opts = { noremap=true, silent=true }
+  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', "<cmd>lua require('fzf-lua').lsp_definitions()<CR>", opts)
+  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', "<cmd>lua require('fzf-lua').lsp_declarations()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K',  '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', "<cmd>lua require('fzf-lua').lsp_references()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'ga', "<cmd>lua require('fzf-lua').lsp_code_actions()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'v', 'ga', ':<C-U>lua vim.lsp.buf.range_code_action()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gm', "<cmd>lua require('fzf-lua').lsp_implementations()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gy', "<cmd>lua require('fzf-lua').lsp_typedefs()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gR', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>K',  '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>k', '<cmd>lua require("lsp").peek_definition()<CR>', opts)
+
+  signature.on_attach(lsp_signature_config)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '[D', '<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', ']D', '<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>', opts)
+
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lc', '<cmd>lua vim.diagnostic.hide()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lQ', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ll', '<cmd>lua vim.diagnostic.open_float({ scope = "line" })<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lt', "", { noremap = opts.noremap, silent = opts.silent, callback = toggleVirtualText })
 
   -- Format on save
   local autoformat_filetypes = { "ruby", "lua" }
