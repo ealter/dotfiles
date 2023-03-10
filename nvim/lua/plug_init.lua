@@ -28,8 +28,28 @@ return require('packer').startup(function(use)
   use 'vim-scripts/matchit.zip'  -- Match complex things with '%'
 
   -- autocomplete
-  use {'neoclide/coc.nvim', branch = 'release'}
-  use 'w0rp/ale'
+  -- use {'neoclide/coc.nvim', branch = 'release'}
+  -- use 'w0rp/ale'
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
+  use {'jose-elias-alvarez/null-ls.nvim', requires = {'nvim-lua/plenary.nvim'}}
+  use 'ray-x/lsp_signature.nvim'
+  use {
+    'hrsh7th/nvim-cmp', -- Autocompletion
+    requires = {
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'hrsh7th/cmp-nvim-lua'},
+      {'hrsh7th/cmp-calc'},
+      {'hrsh7th/cmp-vsnip'},
+      {'hrsh7th/vim-vsnip'},
+      {'hrsh7th/cmp-omni'},
+    }
+  }
 
   -- Language specific
   use 'fatih/vim-go'

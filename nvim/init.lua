@@ -86,4 +86,4 @@ vim.o.gdefault = true
 
 require('plug_init')
 require('plugins')
--- require('lsp')
+require('lsp_configuration')

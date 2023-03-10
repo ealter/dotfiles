@@ -1,6 +1,6 @@
 require('plugins.vim-go')
 require('plugins.rooter')
 require('plugins.ale')
-require('plugins.coc')
+-- require('plugins.coc')
 require('plugins.solarized')
 require('plugins.git')
