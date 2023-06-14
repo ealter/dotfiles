@@ -71,6 +71,7 @@ return require('packer').startup(function(use)
 
     if IsStripeLaptop then
         use { 'git@git.corp.stripe.com:dbalatero/nvim-lsp-pay-server.git' }
+        use { 'git@git.corp.stripe.com:nms/nvim-lspconfig-stripe' }
     end
 
     -- Automatically set up your configuration after cloning packer.nvim
