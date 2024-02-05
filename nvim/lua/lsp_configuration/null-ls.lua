@@ -13,6 +13,7 @@ null_ls.setup({
     end,
     sources = {
         -- JavaScript, etc.
+        -- Requires `npm i -g eslint_d`
         nullls_stripe.diagnostics.eslint_d,
         nullls_stripe.formatting.eslint_d,
         null_ls.builtins.formatting.prettierd,
