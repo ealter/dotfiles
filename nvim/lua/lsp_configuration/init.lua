@@ -26,6 +26,3 @@ local function setup_servers()
 end
 
 setup_servers()
-
--- Initialize null-ls
-require("lsp_configuration.null-ls")

@@ -41,7 +41,6 @@ return require('packer').startup(function(use)
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
     }
-    use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' } }
     use 'ray-x/lsp_signature.nvim'
     use 'onsails/lspkind-nvim' -- icons for completion items
     use {
