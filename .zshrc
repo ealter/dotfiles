@@ -1,52 +1,26 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# Download and start Znap to manage plugins
+[[ -f ~/Git/zsh-snap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/Git/zsh-snap
 
-DISABLE_AUTO_UPDATE="true"
+source ~/Git/zsh-snap/znap.zsh
 
-# load zgen
-source "${HOME}/.zgen/zgen.zsh"
+znap source ohmyzsh/ohmyzsh
 
-# if the init scipt doesn't exist
-if ! zgen saved; then
-    echo "Creating a zgen save"
+znap prompt sindresorhus/pure
+PURE_GIT_UNTRACKED_DIRTY=0
+PURE_GIT_PULL=0
 
-    zgen oh-my-zsh
-
-    # plugins
-    zgen load romkatv/powerlevel10k powerlevel10k
-    zgen load zsh-users/zsh-syntax-highlighting
-
-    # bulk load
-    zgen loadall <<EOPLUGINS
-        zsh-users/zsh-history-substring-search
-EOPLUGINS
-    # ^ can't indent this EOPLUGINS
-
-    # completions
-    zgen load zsh-users/zsh-completions src
-
-    # theme
-    zgen oh-my-zsh themes/arrow
-
-    # save all to init script
-    zgen save
-fi
-
-export ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc ${HOME}/.zshrc.local)
-
-# Turn off the git part of the prompt because it's very slow.
-export RPROMPT=''
+znap install zsh-users/zsh-completions
+znap install zsh-users/zsh-syntax-highlighting
+znap install zsh-users/zsh-history-substring-search
 
 source ~/.bash_profile
 source ~/.bashrc
 
 eval "$(nodenv init -)"
 compdef _git stripe-git=git
+autoload -z edit-command-line
 bindkey -M vicmd v edit-command-line
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
