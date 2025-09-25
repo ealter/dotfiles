@@ -11,7 +11,6 @@ setup_vim(){
     cd $VIM_SYNC_DIR
     VIM_SYNC_DIR=$(pwd)
 
-
     # Vim
     ln -s $VIM_SYNC_DIR/vim/init.vim ~/.vimrc
     ln -s $VIM_SYNC_DIR/vim ~/.vim
@@ -26,9 +25,10 @@ setup_vim(){
 
     # Install all bundles
     echo "Install all bundles"
-    vim +PlugInstall +qall
     if hash nvim 2>/dev/null; then
         nvim +PlugInstall +qall
+    else
+        vim +PlugInstall +qall
     fi
 }
  
