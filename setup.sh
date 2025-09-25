@@ -23,12 +23,15 @@ setup_vim(){
     mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
     ln -s $VIM_SYNC_DIR/vim $XDG_CONFIG_HOME/nvim
 
-    # Install all bundles
-    echo "Install all bundles"
-    if hash nvim 2>/dev/null; then
-        nvim +PlugInstall +qall
-    else
-        vim +PlugInstall +qall
+    # Install all bundles if the terminal is interactive
+    if [ -t 0 ]
+    then
+        echo "Install all bundles"
+        if hash nvim 2>/dev/null; then
+            nvim +PlugInstall +qall
+        else
+            vim +PlugInstall +qall
+        fi
     fi
 }
  
@@ -66,4 +69,4 @@ setup_vendored_files(){
 setup_vim
 setup_other_softlinks
 setup_vendored_files
-setup_neovim_virtualenv
+# setup_neovim_virtualenv
