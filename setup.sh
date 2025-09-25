@@ -61,10 +61,6 @@ setup_vendored_files(){
     if [ ! -f git-prompt.sh ]; then
         wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
     fi
-
-    if [ ! -f "${HOME}/.zgen" ]; then
-        git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
-    fi
 }
  
 setup_vim
