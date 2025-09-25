@@ -1,3 +1,6 @@
+# Prefer zsh if given the option
+export SHELL=/bin/zsh
+
 alias mv='mv -i'
 alias cp='cp -i'
 alias l='ls'
